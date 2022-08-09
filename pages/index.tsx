@@ -1,9 +1,32 @@
-import type { NextPage } from 'next'
-import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
+import type { NextPage } from 'next';
+import Head from 'next/head';
+import { useState } from 'react';
+import EndPage from '../components/end-page';
+import GamePage from '../components/game-page';
+import StartPage from '../components/start-page';
+import styles from '../styles/Home.module.css';
+
+export enum GameState {
+  Start,
+  Game,
+  End
+}
 
 const Home: NextPage = () => {
+  const [gameState, setGameState] = useState<GameState>(GameState.Start);
+
+  const startGame = () => {
+    setGameState(GameState.Game);
+  };
+
+  const getGamePage = () => {
+    switch(gameState) {
+      case(GameState.Start): return(<StartPage startGame={startGame}></StartPage>);
+      case(GameState.Game): return(<GamePage></GamePage>);
+      case(GameState.End): return(<EndPage></EndPage>);
+    }
+  }
+
   return (
     <div className={styles.container}>
       <Head>
@@ -19,12 +42,8 @@ const Home: NextPage = () => {
       </Head>
 
       <main className={styles.main}>
-        
+        {getGamePage()}
       </main>
-
-      <footer className={styles.footer}>
-        
-      </footer>
     </div>
   )
 }

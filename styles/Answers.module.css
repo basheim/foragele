@@ -1,0 +1,114 @@
+.container {
+  overflow: visible;
+  width: 40%;
+  height: 2rem;
+  border: none;
+  cursor: pointer;
+}
+
+.listContainer {
+  position: relative;
+  width: 100%;
+  z-index: 100;
+  height: auto;
+  max-height: 35vh;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.3);
+  overflow-y: auto;
+  top: -2rem;
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.listContainer::-webkit-scrollbar { 
+  display: none;  /* Safari and Chrome */
+}
+
+.input {
+  overflow: visible;
+  width: 100%;
+  height: 2rem;
+  border: none;
+  cursor: pointer;
+  background-color: lightgrey;
+}
+
+.list {
+  padding: 0;
+  margin: 0;
+  padding-top: 2rem;
+  width: 100%;
+  background-color: #F0F2F5;
+}
+
+.list li {
+  margin-top: -1px; /* Prevent double borders */
+  display: block; /* Make it into a block element to fill the whole list */
+  width: 100%;
+  height: 2rem;
+  border-bottom: 1px solid grey;
+}
+
+.list li:hover:not(.header) {
+  background-color: lightgrey;
+}
+
+.filter {
+  border: none;
+  border-bottom: 1px solid grey;
+  margin-top: -1px; /* Prevent double borders */
+  display: block; /* Make it into a block element to fill the whole list */
+  width: 100%;
+  height: 2rem;
+  position: relative;
+  z-index: 110;
+  margin-top: 0;
+  background-color: lightgrey;
+}
+
+.filter::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: black;
+  opacity: 1; /* Firefox */
+}
+
+.filter:focus {
+  outline-width: 0;
+}
+
+.centeringDiv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+}
+
+.centeringDiv p {
+  padding: 0;
+  margin: 0;
+  color: black; 
+}
+
+
+@media (max-width: 600px) {
+  .container, .input {
+    height: 12vw;
+    width: 100%;
+  }
+
+  .filter {
+    height: 12vw;
+  }
+
+  .listContainer {
+    top: -12vw;
+  }
+
+  .list {
+    padding-top: 12vw;
+  }
+
+  .list li {
+    height: 12vw;
+  }
+}
