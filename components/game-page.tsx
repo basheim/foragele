@@ -1,5 +1,5 @@
 import styles from '../styles/Game.module.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Answers, { Answer } from './answers';
 import Timer from './timer';
 
@@ -7,59 +7,33 @@ export interface GamePageProps {
   minutes: number;
   guesses: number;
   correctId: string;
+  possibleAnswers: Answer[];
   finished: (hasWon: boolean) => void;
 }
 
-const GamePage = ({ minutes, guesses, finished, correctId }: GamePageProps) => {
-  const [guessesRemaining, setGuessesRemaining] = useState<number>(guesses)
+const GamePage = ({ minutes, guesses, finished, correctId, possibleAnswers }: GamePageProps) => {
+  const [guessesRemaining, setGuessesRemaining] = useState<number>(guesses);
+  const [update, setUpdate] = useState<boolean>(false);
 
-  const testAnswers: Answer[] = [
-    {
-      name: 'test1',
-      id: '1'
-    },
-    {
-      name: 'test2',
-      id: '2'
-    },
-    {
-      name: 'test3',
-      id: '3'
-    },
-    {
-      name: 'test4',
-      id: '4'
-    },
-    {
-      name: 'test5',
-      id: '5'
-    }
-  ];
-
-  const checkAnswer = (answer: Answer) => {
-    if (answer.id === correctId) {
-      finished(true);
-    } else {
+  useEffect(() => {
+    if (update) {
+      setUpdate(false);
       setGuessesRemaining(guessesRemaining - 1);
-      if (guessesRemaining === 0) {
-        finished(false);
-      }
     }
-  }
-
-  const timerDone = () => {
-    finished(false);
-  }
+    if (guessesRemaining === 0) {
+      finished(false);
+    }
+  }, [guessesRemaining, update]);
 
   return (
     <div className={styles.gameContainer}>
       <div className={styles.timerContainer}>
-        <h3>{`Guesses Remaining: ${guessesRemaining}`}</h3>
-        <Timer addedMinutes={minutes} timerDone={timerDone}></Timer>
+        <h3>{`Guesses: ${guessesRemaining}`}</h3>
+        <Timer addedMinutes={minutes} timerDone={() => finished(false)}></Timer>
       </div>
       <div className={styles.dataContainer}>
         <div className={styles.halfScreen}>
-          <Answers possibleAnswers={testAnswers} checkAnswer={checkAnswer}></Answers>
+          <Answers possibleAnswers={possibleAnswers} correctId={correctId} incorrectAnswer={() => setUpdate(true)} correctAnswer={() => finished(true)}></Answers>
         </div>
         <div className={styles.halfScreen}>
           <img src="https://upload.wikimedia.org/wikipedia/commons/c/c2/Amanita_muscaria_%28fly_agaric%29.JPG"></img>

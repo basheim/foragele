@@ -1,6 +1,7 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import { useState } from 'react';
+import { Answer } from '../components/answers';
 import EndPage from '../components/end-page';
 import GamePage from '../components/game-page';
 import StartPage from '../components/start-page';
@@ -15,8 +16,30 @@ export enum GameState {
 
 const Home: NextPage = () => {
   const [gameState, setGameState] = useState<GameState>(GameState.Start);
-  const timeLimitMinutes = 2;
+  const timeLimitMinutes = 200;
   const guesses = 5;
+  const testAnswers: Answer[] = [
+    {
+      name: 'test1',
+      id: '1'
+    },
+    {
+      name: 'test2',
+      id: '2'
+    },
+    {
+      name: 'test3',
+      id: '3'
+    },
+    {
+      name: 'test4',
+      id: '4'
+    },
+    {
+      name: 'test5',
+      id: '5'
+    }
+  ];
 
   const finishGame = (hasWon: boolean) => {
     hasWon ? setGameState(GameState.Win) : setGameState(GameState.Lose);
@@ -29,7 +52,7 @@ const Home: NextPage = () => {
   const getGamePage = () => {
     switch(gameState) {
       case(GameState.Start): return(<StartPage minutes={timeLimitMinutes} guesses={guesses} startGame={startGame}></StartPage>);
-      case(GameState.Game): return(<GamePage minutes={timeLimitMinutes} guesses={guesses} finished={finishGame} correctId="1"></GamePage>);
+      case(GameState.Game): return(<GamePage minutes={timeLimitMinutes} guesses={guesses} finished={finishGame} correctId="1" possibleAnswers={testAnswers}></GamePage>);
       case(GameState.Win): return(<EndPage></EndPage>);
       case(GameState.Lose): return(<EndPage></EndPage>);
     }

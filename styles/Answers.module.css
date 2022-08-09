@@ -90,14 +90,14 @@
 }
 
 
-@media (max-width: 600px) {
+@media (max-width: 800px) {
   .container, .input {
-    height: 12vw;
+    height: 3rem;
     width: 100%;
   }
 
   .filter {
-    height: 12vw;
+    height: 3rem;
   }
 
   .listContainer {
@@ -109,6 +109,6 @@
   }
 
   .list li {
-    height: 12vw;
+    height: 3rem;
   }
 }

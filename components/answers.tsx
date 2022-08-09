@@ -9,10 +9,12 @@ export interface Answer {
 
 export interface AnswersProps {
   possibleAnswers: Answer[];
-  checkAnswer: (answer: Answer) => void;
+  correctId: string;
+  incorrectAnswer: () => void;
+  correctAnswer: () => void;
 }
 
-const Answers = ({ possibleAnswers, checkAnswer }: AnswersProps) => {
+const Answers = ({ possibleAnswers, correctId, incorrectAnswer, correctAnswer }: AnswersProps) => {
   const [filter, setFilter] = useState<string>("");
   const { ref, isComponentVisible, setIsComponentVisible } = useComponentVisible(false);
   
@@ -39,7 +41,11 @@ const Answers = ({ possibleAnswers, checkAnswer }: AnswersProps) => {
   }, [filter]);
 
   const updateSelectedUser = (answer: Answer) => {
-    checkAnswer(answer);
+    if (answer.id === correctId) {
+      correctAnswer();
+    } else {
+      incorrectAnswer();
+    }
     setFilter("");
     setIsComponentVisible(false);
   };
