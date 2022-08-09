@@ -13,7 +13,6 @@ export interface AnswersProps {
 }
 
 const Answers = ({ possibleAnswers, checkAnswer }: AnswersProps) => {
-  const [selectedAnswer, setSelectedAnswer] = useState<string | undefined>(undefined);
   const [filter, setFilter] = useState<string>("");
   const { ref, isComponentVisible, setIsComponentVisible } = useComponentVisible(false);
   
@@ -40,7 +39,6 @@ const Answers = ({ possibleAnswers, checkAnswer }: AnswersProps) => {
   }, [filter]);
 
   const updateSelectedUser = (answer: Answer) => {
-    setSelectedAnswer(answer.name);
     checkAnswer(answer);
     setFilter("");
     setIsComponentVisible(false);
@@ -48,7 +46,7 @@ const Answers = ({ possibleAnswers, checkAnswer }: AnswersProps) => {
 
   return (
     <div ref={ref} className={`${styles.container} no-select`}>
-      {!isComponentVisible && <input type="button" className={`${styles.input} no-select`} value={ selectedAnswer ?  selectedAnswer :  "Select Name..."} onClick={() => setIsComponentVisible(!isComponentVisible)}/>}
+      {!isComponentVisible && <input type="button" className={`${styles.input} no-select`} value={ "Select Name..."} onClick={() => setIsComponentVisible(!isComponentVisible)}/>}
       {isComponentVisible && <input className={`${styles.filter} no-select`} type="text" value={filter} onChange={(e) => setFilter(e.currentTarget.value)} placeholder="Search..." />}
       {isComponentVisible && <div className={`${styles.listContainer} no-select`}>
         <ul className={`${styles.list} no-select`}>

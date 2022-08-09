@@ -1,11 +1,17 @@
 import styles from '../styles/Game.module.css';
+import { useState } from 'react';
 import Answers, { Answer } from './answers';
 import Timer from './timer';
 
 export interface GamePageProps {
+  minutes: number;
+  guesses: number;
+  correctId: string;
+  finished: (hasWon: boolean) => void;
 }
 
-const GamePage = ({ }: GamePageProps) => {
+const GamePage = ({ minutes, guesses, finished, correctId }: GamePageProps) => {
+  const [guessesRemaining, setGuessesRemaining] = useState<number>(guesses)
 
   const testAnswers: Answer[] = [
     {
@@ -30,23 +36,41 @@ const GamePage = ({ }: GamePageProps) => {
     }
   ];
 
+  const checkAnswer = (answer: Answer) => {
+    if (answer.id === correctId) {
+      finished(true);
+    } else {
+      setGuessesRemaining(guessesRemaining - 1);
+      if (guessesRemaining === 0) {
+        finished(false);
+      }
+    }
+  }
+
+  const timerDone = () => {
+    finished(false);
+  }
+
   return (
     <div className={styles.gameContainer}>
-      <Timer addedMinutes={2} timerDone={() => {}}></Timer>
-      <div className={styles.fullScreen}>
-        <Answers possibleAnswers={testAnswers} checkAnswer={() => {}}></Answers>
+      <div className={styles.timerContainer}>
+        <h3>{`Guesses Remaining: ${guessesRemaining}`}</h3>
+        <Timer addedMinutes={minutes} timerDone={timerDone}></Timer>
       </div>
       <div className={styles.dataContainer}>
         <div className={styles.halfScreen}>
-          <img src="https://upload.wikimedia.org/wikipedia/commons/c/c2/Amanita_muscaria_%28fly_agaric%29.JPG"></img>
+          <Answers possibleAnswers={testAnswers} checkAnswer={checkAnswer}></Answers>
         </div>
         <div className={styles.halfScreen}>
+          <img src="https://upload.wikimedia.org/wikipedia/commons/c/c2/Amanita_muscaria_%28fly_agaric%29.JPG"></img>
+        </div>
+      </div>
+      <div className={styles.fullScreen}>
           <h3 className={styles.subTitle}>Hints</h3>
           <ul className={styles.table}>
             <li className={styles.tableItem}>test</li>
           </ul>
         </div>
-      </div>
     </div>
   )
 }

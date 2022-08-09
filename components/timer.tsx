@@ -1,4 +1,3 @@
-import styles from '../styles/Game.module.css';
 import { useEffect, useState } from 'react';
 
 export interface TimerProps {
@@ -37,9 +36,7 @@ const Timer = ({ addedMinutes, timerDone }: TimerProps) => {
   };
 
   return (
-    <div className={styles.timerContainer}>
-        <h3>{timeString}</h3>
-    </div>
+    <h3>{timeString}</h3>
   )
 }
 

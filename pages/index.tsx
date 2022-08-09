@@ -9,11 +9,18 @@ import styles from '../styles/Home.module.css';
 export enum GameState {
   Start,
   Game,
-  End
+  Win,
+  Lose
 }
 
 const Home: NextPage = () => {
   const [gameState, setGameState] = useState<GameState>(GameState.Start);
+  const timeLimitMinutes = 2;
+  const guesses = 5;
+
+  const finishGame = (hasWon: boolean) => {
+    hasWon ? setGameState(GameState.Win) : setGameState(GameState.Lose);
+  };
 
   const startGame = () => {
     setGameState(GameState.Game);
@@ -21,9 +28,10 @@ const Home: NextPage = () => {
 
   const getGamePage = () => {
     switch(gameState) {
-      case(GameState.Start): return(<StartPage startGame={startGame}></StartPage>);
-      case(GameState.Game): return(<GamePage></GamePage>);
-      case(GameState.End): return(<EndPage></EndPage>);
+      case(GameState.Start): return(<StartPage minutes={timeLimitMinutes} guesses={guesses} startGame={startGame}></StartPage>);
+      case(GameState.Game): return(<GamePage minutes={timeLimitMinutes} guesses={guesses} finished={finishGame} correctId="1"></GamePage>);
+      case(GameState.Win): return(<EndPage></EndPage>);
+      case(GameState.Lose): return(<EndPage></EndPage>);
     }
   }
 
