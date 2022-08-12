@@ -1,8 +1,9 @@
 import styles from '../styles/Game.module.css';
 import { useState, useEffect } from 'react';
-import Answers, { Answer } from './answers';
+import Answers from './answers';
 import Timer from './timer';
 import Modal from './modal';
+import { Answer } from '../lib/interfaces';
 
 export interface GamePageProps {
   minutes: number;
@@ -16,6 +17,11 @@ const GamePage = ({ minutes, guesses, finished, correctId, possibleAnswers }: Ga
   const [guessesRemaining, setGuessesRemaining] = useState<number>(guesses);
   const [update, setUpdate] = useState<boolean>(false);
   const [openHintModal, setOpenHintModal] = useState<boolean>(false);
+
+  const testList = [
+    "testing 1",
+    "testing 2"
+  ];
 
   useEffect(() => {
     if (update) {
@@ -44,7 +50,7 @@ const GamePage = ({ minutes, guesses, finished, correctId, possibleAnswers }: Ga
       <div className={styles.fullScreen}>
         <button className={styles.button} onClick={() => setOpenHintModal(true)}>hints</button>
       </div>
-      <Modal modalOpen={openHintModal} setClose={() => setOpenHintModal(false)} title="Hints" bodyHtml="test"></Modal>
+      <Modal modalOpen={openHintModal} setClose={() => setOpenHintModal(false)} title="Hints" items={testList}></Modal>
     </div>
   )
 }

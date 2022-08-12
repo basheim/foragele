@@ -1,10 +1,10 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import { useState } from 'react';
-import { Answer } from '../components/answers';
 import EndPage from '../components/end-page';
 import GamePage from '../components/game-page';
 import StartPage from '../components/start-page';
+import { Answer } from '../lib/interfaces';
 import styles from '../styles/Home.module.css';
 
 export enum GameState {

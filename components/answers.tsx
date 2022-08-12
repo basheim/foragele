@@ -1,10 +1,7 @@
 import { useState, useEffect } from 'react';
+import { Answer } from '../lib/interfaces';
 import styles from '../styles/Answers.module.css';
-
-export interface Answer {
-  id: string;
-  name: string;
-}
+import AnswerItem from './answer-item';
 
 export interface AnswersProps {
   possibleAnswers: Answer[];
@@ -21,15 +18,20 @@ const Answers = ({ possibleAnswers, correctId, incorrectAnswer, correctAnswer }:
     for (const answer of possibleAnswers.sort((a, b) => a.name.toLowerCase().charAt(0).localeCompare(b.name.toLowerCase().charAt(0)))) {
       if (answer.name.toLowerCase().includes(filter.toLowerCase())) {
         items.push(
-          <li value={answer.name} key={`${answer.id}-${answer.name}`} onClick={() => updateSelectedUser(answer)}>
-            <div className={styles.centeringDiv}>
-              <p>{answer.name}</p>
-            </div>
-          </li>
+          <AnswerItem key={`${answer.id}-${answer.name}`} answer={answer} submitted={() => submit(answer.id === correctId ? correctAnswer : incorrectAnswer)}></AnswerItem>
         );
       }
     }
     return items;
+  };
+
+  const close = () => {
+    setFilter("");
+  };
+
+  const submit = (action: () => void) => {
+    close();
+    action();
   };
 
   const [answerList, setAnwserList] = useState<JSX.Element[]>(getAnswerList());
@@ -37,15 +39,6 @@ const Answers = ({ possibleAnswers, correctId, incorrectAnswer, correctAnswer }:
   useEffect(() => {
     setAnwserList(getAnswerList());
   }, [filter]);
-
-  const updateSelectedUser = (answer: Answer) => {
-    if (answer.id === correctId) {
-      correctAnswer();
-    } else {
-      incorrectAnswer();
-    }
-    setFilter("");
-  };
 
   return (
     <div className={styles.container}>
