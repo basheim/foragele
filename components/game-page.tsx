@@ -2,6 +2,7 @@ import styles from '../styles/Game.module.css';
 import { useState, useEffect } from 'react';
 import Answers, { Answer } from './answers';
 import Timer from './timer';
+import Modal from './modal';
 
 export interface GamePageProps {
   minutes: number;
@@ -14,6 +15,7 @@ export interface GamePageProps {
 const GamePage = ({ minutes, guesses, finished, correctId, possibleAnswers }: GamePageProps) => {
   const [guessesRemaining, setGuessesRemaining] = useState<number>(guesses);
   const [update, setUpdate] = useState<boolean>(false);
+  const [openHintModal, setOpenHintModal] = useState<boolean>(false);
 
   useEffect(() => {
     if (update) {
@@ -33,18 +35,16 @@ const GamePage = ({ minutes, guesses, finished, correctId, possibleAnswers }: Ga
       </div>
       <div className={styles.dataContainer}>
         <div className={styles.halfScreen}>
-          <Answers possibleAnswers={possibleAnswers} correctId={correctId} incorrectAnswer={() => setUpdate(true)} correctAnswer={() => finished(true)}></Answers>
+          <img src="https://upload.wikimedia.org/wikipedia/commons/c/c2/Amanita_muscaria_%28fly_agaric%29.JPG"></img>
         </div>
         <div className={styles.halfScreen}>
-          <img src="https://upload.wikimedia.org/wikipedia/commons/c/c2/Amanita_muscaria_%28fly_agaric%29.JPG"></img>
+          <Answers possibleAnswers={possibleAnswers} correctId={correctId} incorrectAnswer={() => setUpdate(true)} correctAnswer={() => finished(true)}></Answers>
         </div>
       </div>
       <div className={styles.fullScreen}>
-          <h3 className={styles.subTitle}>Hints</h3>
-          <ul className={styles.table}>
-            <li className={styles.tableItem}>test</li>
-          </ul>
-        </div>
+        <button className={styles.button} onClick={() => setOpenHintModal(true)}>hints</button>
+      </div>
+      <Modal modalOpen={openHintModal} setClose={() => setOpenHintModal(false)} title="Hints" bodyHtml="test"></Modal>
     </div>
   )
 }

@@ -1,0 +1,52 @@
+.modalContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  height: auto;
+  width: 50%;
+  background-color: white;
+  border-radius: 1rem;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.buttonDiv {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+}
+
+.button {
+  font-size: 1.5rem;
+  padding:.5rem;
+  border-radius: .7rem;
+  width: 45%;
+}
+
+.title {
+  padding: 0;
+  margin: 0;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.body {
+  padding: 0;
+  margin: 0;
+}
+
+.content {
+  margin-bottom: 2rem;
+}
