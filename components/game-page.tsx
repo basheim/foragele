@@ -4,6 +4,7 @@ import Answers from './answers';
 import Timer from './timer';
 import Modal from './modal';
 import { Answer } from '../lib/interfaces';
+import Guesses from './guesses';
 
 export interface GamePageProps {
   minutes: number;
@@ -36,7 +37,7 @@ const GamePage = ({ minutes, guesses, finished, correctId, possibleAnswers }: Ga
   return (
     <div className={styles.gameContainer}>
       <div className={styles.timerContainer}>
-        <h3>{`Guesses: ${guessesRemaining}`}</h3>
+        <Guesses guessCount={guessesRemaining}></Guesses>
         <Timer addedMinutes={minutes} timerDone={() => finished(false)}></Timer>
       </div>
       <div className={styles.dataContainer}>

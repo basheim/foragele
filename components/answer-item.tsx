@@ -19,12 +19,10 @@ const AnswerItem = ({ answer, submitted }: AnswerItemProps) => {
   ];
 
   const open = () => {
-    console.log('here1');
     setOpenAnswerModal(true)
   };
 
   const close = () => {
-    console.log('here');
     setOpenAnswerModal(false);
   };
 
@@ -34,7 +32,7 @@ const AnswerItem = ({ answer, submitted }: AnswerItemProps) => {
   };
 
   return (
-    <li value={answer.name} onClick={open}>
+    <li value={answer.name} className={styles.answerItem} onClick={open}>
       <div className={styles.centeringDiv}>
         <p>{answer.name}</p>
       </div>

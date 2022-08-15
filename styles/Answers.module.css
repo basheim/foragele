@@ -20,19 +20,6 @@
   background-color: #F0F2F5;
 }
 
-.list li {
-  margin-top: -1px; /* Prevent double borders */
-  display: block; /* Make it into a block element to fill the whole list */
-  width: 100%;
-  height: 2rem;
-  border-bottom: 1px solid grey;
-  cursor: pointer;
-}
-
-.list li:hover:not(.header) {
-  background-color: lightgrey;
-}
-
 .filter {
   border: none;
   border-bottom: 1px solid grey;
@@ -68,6 +55,18 @@
   color: black; 
 }
 
+.answerItem {
+  margin-top: -1px; /* Prevent double borders */
+  display: block; /* Make it into a block element to fill the whole list */
+  width: 100%;
+  height: 2rem;
+  border-bottom: 1px solid grey;
+  cursor: pointer;
+}
+
+.answerItem:hover:not(.header) {
+  background-color: lightgrey;
+}
 
 @media (max-width: 800px) {
   .filter, .list li {
