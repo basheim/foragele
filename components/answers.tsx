@@ -18,7 +18,7 @@ const Answers = ({ possibleAnswers, correctId, incorrectAnswer, correctAnswer }:
     for (const answer of possibleAnswers.sort((a, b) => a.name.toLowerCase().charAt(0).localeCompare(b.name.toLowerCase().charAt(0)))) {
       if (answer.name.toLowerCase().includes(filter.toLowerCase())) {
         items.push(
-          <AnswerItem key={`${answer.id}-${answer.name}`} answer={answer} submitted={() => submit(answer.id === correctId ? correctAnswer : incorrectAnswer)}></AnswerItem>
+          <AnswerItem key={`${answer.id}-${answer.name}`} answer={answer} submitted={() => submit(answer.id === correctId ? correctAnswer : incorrectAnswer)} correctAnswer={answer.id === correctId}></AnswerItem>
         );
       }
     }

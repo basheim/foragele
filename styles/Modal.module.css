@@ -1,3 +1,14 @@
+@keyframes flash {
+  from {
+    background-color: white;
+    opacity: 1;
+  }
+  to {
+    background-color: red;
+    opacity: 0;
+  }
+}
+
 .modalContainer {
   position: absolute;
   top: 0;
@@ -53,6 +64,14 @@
 
 .content {
   margin-bottom: 1rem;
+}
+
+.correct {
+  animation: flash 1s;
+}
+
+.incorrect {
+  animation: flash 1s;
 }
 
 @media (max-width: 800px) {

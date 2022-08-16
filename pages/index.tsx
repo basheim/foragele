@@ -4,15 +4,11 @@ import { useState } from 'react';
 import EndPage from '../components/end-page';
 import GamePage from '../components/game-page';
 import StartPage from '../components/start-page';
+import { GameState } from '../lib/enums';
 import { Answer } from '../lib/interfaces';
 import styles from '../styles/Home.module.css';
 
-export enum GameState {
-  Start,
-  Game,
-  Win,
-  Lose
-}
+
 
 const Home: NextPage = () => {
   const [gameState, setGameState] = useState<GameState>(GameState.Start);
