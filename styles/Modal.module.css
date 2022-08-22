@@ -1,11 +1,9 @@
 @keyframes flash {
   from {
-    background-color: white;
-    opacity: 1;
+    opacity: 0;
   }
   to {
-    background-color: red;
-    opacity: 0;
+    opacity: 1;
   }
 }
 
@@ -67,11 +65,13 @@
 }
 
 .correct {
-  animation: flash 1s;
+  animation: flash 0.7s;
+  color: green;
 }
 
 .incorrect {
-  animation: flash 1s;
+  animation: flash 0.7s;
+  color: red;
 }
 
 @media (max-width: 800px) {

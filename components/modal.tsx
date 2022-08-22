@@ -43,7 +43,7 @@ const Modal = ({ modalOpen, title, items, acceptAction, setClose, result}: Modal
     <React.Fragment>
       {modalOpen && 
         <div className={styles.modalContainer}>
-          <div className={`${styles.modal} ${(showResult && result === Result.Correct) && styles.correct} ${(showResult && result === Result.Incorrect) && styles.incorrect}`} onAnimationEnd={accept}>
+          <div className={styles.modal}>
             <div className={styles.content}>
               <h2 className={styles.title}>{title}</h2>
               {items &&
@@ -56,6 +56,8 @@ const Modal = ({ modalOpen, title, items, acceptAction, setClose, result}: Modal
               {acceptAction && <button className={styles.button} onClick={click}>Guess</button>}
               <button className={styles.button} onClick={close}>Close</button>
             </div>
+            {showResult && result === Result.Correct && <h3 className={styles.correct} onAnimationEnd={accept}>Correct!</h3>}
+            {showResult && result === Result.Incorrect && <h3 className={styles.incorrect} onAnimationEnd={accept}>Incorrect!</h3>}
           </div>
         </div>
       }

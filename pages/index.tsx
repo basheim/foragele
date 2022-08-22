@@ -12,7 +12,7 @@ import styles from '../styles/Home.module.css';
 
 const Home: NextPage = () => {
   const [gameState, setGameState] = useState<GameState>(GameState.Start);
-  const timeLimitMinutes = 200;
+  const timeLimitMinutes = 2;
   const guesses = 5;
   const testAnswers: Answer[] = [
     {
