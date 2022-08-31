@@ -18,14 +18,10 @@ const GamePage = ({ minutes, guesses, finished, correctId, possibleAnswers }: Ga
   const [guessesRemaining, setGuessesRemaining] = useState<number>(guesses);
   const [update, setUpdate] = useState<boolean>(false);
   const [openHintModal, setOpenHintModal] = useState<boolean>(false);
+  const [hints, setHints] = useState<string[]>([]);
 
   const getCorrectAnswer = () => {
     return possibleAnswers.find((answer) => answer.id === correctId);
-  }
-
-  const getHints = (): (string | undefined)[] => {
-    const correctAnswer = getCorrectAnswer();
-    return [correctAnswer?.region, correctAnswer?.edibility, correctAnswer?.mostNotableFeature];
   }
 
   const getImageUrl = (): string => {
@@ -35,6 +31,20 @@ const GamePage = ({ minutes, guesses, finished, correctId, possibleAnswers }: Ga
 
   useEffect(() => {
     if (update) {
+      const correctAnswer = getCorrectAnswer();
+      if (correctAnswer) {
+        if (guessesRemaining === 4) {
+          hints.push(correctAnswer.region);
+          setHints(hints);
+        } else if (guessesRemaining === 3) {
+          hints.push(correctAnswer.edibility);
+          setHints(hints);
+        } else if (guessesRemaining === 2) {
+          hints.push(correctAnswer.mostNotableFeature);
+          setHints(hints);
+        }
+      }
+
       setUpdate(false);
       setGuessesRemaining(guessesRemaining - 1);
     }
@@ -60,7 +70,7 @@ const GamePage = ({ minutes, guesses, finished, correctId, possibleAnswers }: Ga
       <div className={styles.fullScreen}>
         <button className={styles.button} onClick={() => setOpenHintModal(true)}>hints</button>
       </div>
-      <Modal modalOpen={openHintModal} setClose={() => setOpenHintModal(false)} title="Hints" items={getHints()}></Modal>
+      <Modal modalOpen={openHintModal} setClose={() => setOpenHintModal(false)} title="Hints" items={hints.length === 0 ? ["No hints are visible on first guess."] : hints}></Modal>
     </div>
   )
 }

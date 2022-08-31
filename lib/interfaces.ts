@@ -5,4 +5,8 @@ export interface Answer {
   edibility: string;
   mostNotableFeature: string;
   imageUrl: string;
-}
+};
+
+export interface GameInfo {
+  isWinner: boolean;
+};
