@@ -1,3 +1,5 @@
+import { LossReason } from "./enums";
+
 export interface Answer {
   id: string;
   name: string;
@@ -9,4 +11,8 @@ export interface Answer {
 
 export interface GameInfo {
   isWinner: boolean;
+  lossReason: LossReason | undefined;
+  correctAnswer: Answer;
+  timeRemaining: number;
+  guessesRemaining: number;
 };

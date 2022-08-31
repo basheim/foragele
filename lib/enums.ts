@@ -1,6 +1,10 @@
 export enum GameState {
   Start,
   Game,
-  Win,
-  Lose
+  End
+}
+
+export enum LossReason {
+  Timeout,
+  IncorrectGuesses
 }

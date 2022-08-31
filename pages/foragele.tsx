@@ -3,21 +3,30 @@ import { useState } from 'react';
 import EndPage from '../components/end-page';
 import GamePage from '../components/game-page';
 import StartPage from '../components/start-page';
-import { GameState } from '../lib/enums';
-import { Answer } from '../lib/interfaces';
+import { GameState, LossReason } from '../lib/enums';
+import { Answer, GameInfo } from '../lib/interfaces';
 import styles from '../styles/Home.module.css';
 
 interface ForageleProps {
   answers: Answer[];
+  correctId: string;
 }
 
-const Foragele = ({ answers }: ForageleProps) => {
+const Foragele = ({ answers, correctId }: ForageleProps) => {
   const [gameState, setGameState] = useState<GameState>(GameState.Start);
+  const [gameInfo, setGameInfo] = useState<GameInfo>({} as any);
   const timeLimitMinutes = 2;
   const guesses = 4;
 
-  const finishGame = (hasWon: boolean) => {
-    hasWon ? setGameState(GameState.Win) : setGameState(GameState.Lose);
+  const finishGame = (hasWon: boolean, timeRemaining: number, guessesRemaining: number, lossReason: LossReason | undefined) => {
+    setGameInfo({
+        isWinner: hasWon,
+        lossReason: lossReason,
+        correctAnswer: answers.find((answer) => answer.id === correctId) || {} as any,
+        timeRemaining: timeRemaining,
+        guessesRemaining: guessesRemaining
+    });
+    setGameState(GameState.End);
   };
 
   const startGame = () => {
@@ -27,9 +36,8 @@ const Foragele = ({ answers }: ForageleProps) => {
   const getGamePage = () => {
     switch(gameState) {
       case(GameState.Start): return(<StartPage minutes={timeLimitMinutes} guesses={guesses} startGame={startGame}></StartPage>);
-      case(GameState.Game): return(<GamePage minutes={timeLimitMinutes} guesses={guesses} finished={finishGame} correctId="1" possibleAnswers={answers}></GamePage>);
-      case(GameState.Win): return(<EndPage></EndPage>);
-      case(GameState.Lose): return(<EndPage></EndPage>);
+      case(GameState.Game): return(<GamePage minutes={timeLimitMinutes} guesses={guesses} finished={finishGame} correctId={correctId} possibleAnswers={answers}></GamePage>);
+      case(GameState.End): return(<EndPage gameInfo={gameInfo}></EndPage>);
     }
   }
 
@@ -60,7 +68,7 @@ export async function getStaticProps() {
   const answers = await res.json()
 
   // Pass post data to the page via props
-  return { props: { answers } }
+  return { props: { answers, correctId: "1" } }
 }
 
 export default Foragele

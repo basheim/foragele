@@ -5,13 +5,14 @@ import Timer from './timer';
 import Modal from './modal';
 import { Answer } from '../lib/interfaces';
 import Guesses from './guesses';
+import { LossReason } from '../lib/enums';
 
 export interface GamePageProps {
   minutes: number;
   guesses: number;
   correctId: string;
   possibleAnswers: Answer[];
-  finished: (hasWon: boolean) => void;
+  finished: (hasWon: boolean, timeRemaining: number, guessesRemaining: number, lossReason: LossReason | undefined) => void;
 }
 
 const GamePage = ({ minutes, guesses, finished, correctId, possibleAnswers }: GamePageProps) => {
