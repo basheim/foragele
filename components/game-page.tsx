@@ -19,10 +19,19 @@ const GamePage = ({ minutes, guesses, finished, correctId, possibleAnswers }: Ga
   const [update, setUpdate] = useState<boolean>(false);
   const [openHintModal, setOpenHintModal] = useState<boolean>(false);
 
-  const testList = [
-    "testing 1",
-    "testing 2"
-  ];
+  const getCorrectAnswer = () => {
+    return possibleAnswers.find((answer) => answer.id === correctId);
+  }
+
+  const getHints = (): (string | undefined)[] => {
+    const correctAnswer = getCorrectAnswer();
+    return [correctAnswer?.region, correctAnswer?.edibility, correctAnswer?.mostNotableFeature];
+  }
+
+  const getImageUrl = (): string => {
+    const correctAnswer = getCorrectAnswer();
+    return correctAnswer ? correctAnswer.imageUrl : "error.png";
+  }
 
   useEffect(() => {
     if (update) {
@@ -42,7 +51,7 @@ const GamePage = ({ minutes, guesses, finished, correctId, possibleAnswers }: Ga
       </div>
       <div className={styles.dataContainer}>
         <div className={styles.halfScreen}>
-          <img src="https://upload.wikimedia.org/wikipedia/commons/c/c2/Amanita_muscaria_%28fly_agaric%29.JPG"></img>
+          <img src={getImageUrl()}></img>
         </div>
         <div className={styles.halfScreen}>
           <Answers possibleAnswers={possibleAnswers} correctId={correctId} incorrectAnswer={() => setUpdate(true)} correctAnswer={() => finished(true)}></Answers>
@@ -51,7 +60,7 @@ const GamePage = ({ minutes, guesses, finished, correctId, possibleAnswers }: Ga
       <div className={styles.fullScreen}>
         <button className={styles.button} onClick={() => setOpenHintModal(true)}>hints</button>
       </div>
-      <Modal modalOpen={openHintModal} setClose={() => setOpenHintModal(false)} title="Hints" items={testList}></Modal>
+      <Modal modalOpen={openHintModal} setClose={() => setOpenHintModal(false)} title="Hints" items={getHints()}></Modal>
     </div>
   )
 }

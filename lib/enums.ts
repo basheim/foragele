@@ -4,8 +4,3 @@ export enum GameState {
   Win,
   Lose
 }
-
-export enum Result {
-  Correct,
-  Incorrect
-}

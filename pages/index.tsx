@@ -1,4 +1,3 @@
-import type { NextPage } from 'next';
 import Head from 'next/head';
 import { useState } from 'react';
 import EndPage from '../components/end-page';
@@ -8,46 +7,14 @@ import { GameState } from '../lib/enums';
 import { Answer } from '../lib/interfaces';
 import styles from '../styles/Home.module.css';
 
+interface HomeProps {
+  answers: Answer[];
+}
 
-
-const Home: NextPage = () => {
+const Home = ({ answers }: HomeProps) => {
   const [gameState, setGameState] = useState<GameState>(GameState.Start);
   const timeLimitMinutes = 2;
   const guesses = 5;
-  const testAnswers: Answer[] = [
-    {
-      name: 'test1',
-      id: '1'
-    },
-    {
-      name: 'test2',
-      id: '2'
-    },
-    {
-      name: 'test3',
-      id: '3'
-    },
-    {
-      name: 'test4',
-      id: '4'
-    },
-    {
-      name: 'test5',
-      id: '5'
-    },
-    {
-      name: 'xxx',
-      id: '6'
-    },
-    {
-      name: 'aaa',
-      id: '7'
-    },
-    {
-      name: '123',
-      id: '4'
-    }
-  ];
 
   const finishGame = (hasWon: boolean) => {
     hasWon ? setGameState(GameState.Win) : setGameState(GameState.Lose);
@@ -60,7 +27,7 @@ const Home: NextPage = () => {
   const getGamePage = () => {
     switch(gameState) {
       case(GameState.Start): return(<StartPage minutes={timeLimitMinutes} guesses={guesses} startGame={startGame}></StartPage>);
-      case(GameState.Game): return(<GamePage minutes={timeLimitMinutes} guesses={guesses} finished={finishGame} correctId="1" possibleAnswers={testAnswers}></GamePage>);
+      case(GameState.Game): return(<GamePage minutes={timeLimitMinutes} guesses={guesses} finished={finishGame} correctId="1" possibleAnswers={answers}></GamePage>);
       case(GameState.Win): return(<EndPage></EndPage>);
       case(GameState.Lose): return(<EndPage></EndPage>);
     }
@@ -85,6 +52,15 @@ const Home: NextPage = () => {
       </main>
     </div>
   )
+}
+
+// This also gets called at build time
+export async function getStaticProps() {
+  const res = await fetch(`http://beans-backend-lb-1879534989.us-west-2.elb.amazonaws.com:80/api/v1/plants`);
+  const answers = await res.json()
+
+  // Pass post data to the page via props
+  return { props: { answers } }
 }
 
 export default Home
