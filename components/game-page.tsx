@@ -20,6 +20,8 @@ const GamePage = ({ minutes, guesses, finished, correctId, possibleAnswers }: Ga
   const [update, setUpdate] = useState<boolean>(false);
   const [openHintModal, setOpenHintModal] = useState<boolean>(false);
   const [hints, setHints] = useState<string[]>([]);
+  const [timeRemaining, setTimeRemaining] = useState<number>(minutes * 60 * 1000);
+  const [correctGuess, setCorrectGuess] = useState<boolean>(false);
 
   const getCorrectAnswer = () => {
     return possibleAnswers.find((answer) => answer.id === correctId);
@@ -28,6 +30,10 @@ const GamePage = ({ minutes, guesses, finished, correctId, possibleAnswers }: Ga
   const getImageUrl = (): string => {
     const correctAnswer = getCorrectAnswer();
     return correctAnswer ? correctAnswer.imageUrl : "error.png";
+  }
+
+  const updateTimeRemaining = (time: number) => {
+    setTimeRemaining(time);
   }
 
   useEffect(() => {
@@ -49,27 +55,36 @@ const GamePage = ({ minutes, guesses, finished, correctId, possibleAnswers }: Ga
       setUpdate(false);
       setGuessesRemaining(guessesRemaining - 1);
     }
+    
     if (guessesRemaining === 0) {
-      finished(false);
+      finished(false, timeRemaining, guessesRemaining, LossReason.IncorrectGuesses);
     }
-  }, [guessesRemaining, update]);
+
+    if (timeRemaining === 0) {
+      finished(false, timeRemaining, guessesRemaining, LossReason.Timeout);
+    }
+
+    if (correctGuess) {
+      finished(true, timeRemaining, guessesRemaining, undefined);
+    }
+  }, [guessesRemaining, update, timeRemaining, correctGuess]);
 
   return (
     <div className={styles.gameContainer}>
       <div className={styles.timerContainer}>
         <Guesses guessCount={guessesRemaining}></Guesses>
-        <Timer addedMinutes={minutes} timerDone={() => finished(false)}></Timer>
+        <Timer addedMinutes={minutes} update={updateTimeRemaining}></Timer>
       </div>
       <div className={styles.dataContainer}>
         <div className={styles.halfScreen}>
           <img src={getImageUrl()}></img>
         </div>
         <div className={styles.halfScreen}>
-          <Answers possibleAnswers={possibleAnswers} correctId={correctId} incorrectAnswer={() => setUpdate(true)} correctAnswer={() => finished(true)}></Answers>
+          <Answers possibleAnswers={possibleAnswers} correctId={correctId} incorrectAnswer={() => setUpdate(true)} correctAnswer={() => setCorrectGuess(true)}></Answers>
         </div>
       </div>
       <div className={styles.fullScreen}>
-        <button className={styles.button} onClick={() => setOpenHintModal(true)}>hints</button>
+        <button className={`${styles.button} no-select`} onClick={() => setOpenHintModal(true)}>hints</button>
       </div>
       <Modal modalOpen={openHintModal} setClose={() => setOpenHintModal(false)} title="Hints" items={hints.length === 0 ? ["No hints are visible on first guess."] : hints}></Modal>
     </div>

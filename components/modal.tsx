@@ -47,8 +47,8 @@ const Modal = ({ modalOpen, title, items, acceptAction, setClose}: ModalProps) =
               }
             </div>
             <div className={styles.buttonDiv}>
-              {acceptAction && <button className={styles.button} onClick={click}>Guess</button>}
-              <button className={styles.button} onClick={close}>Close</button>
+              {acceptAction && <button className={`${styles.button} no-select`} onClick={click}>Guess</button>}
+              <button className={`${styles.button} no-select`} onClick={close}>Close</button>
             </div>
           </div>
         </div>

@@ -1,15 +1,14 @@
 import { useEffect, useState } from 'react';
+import { getStringTime, MINUTE_IN_MS } from '../lib/helpers';
 
 export interface TimerProps {
   addedMinutes: number;
-  timerDone: () => void;
+  update: (timeRemaining: number) => void;
 }
 
-const Timer = ({ addedMinutes, timerDone }: TimerProps) => {
+const Timer = ({ addedMinutes, update }: TimerProps) => {
   const [timeString, setTimeString] = useState("");
-  const _second = 1000;
-  const _minute = _second * 60;
-  const end = new Date(Date.now() + addedMinutes * _minute);
+  const end = new Date(Date.now() + addedMinutes * MINUTE_IN_MS);
   
   useEffect(() => {
     countDownTimer();
@@ -22,15 +21,10 @@ const Timer = ({ addedMinutes, timerDone }: TimerProps) => {
 
         if (diff <= 0) {
           diff = 0;
-          timerDone();
         }
-
-        const minutes = Math.floor(diff / _minute);
-        const seconds = Math.floor((diff % _minute) / _second).toLocaleString(undefined, {minimumIntegerDigits : 2});
-
-        const string = `${minutes}:${seconds}`;
-
-        setTimeString(string);
+        
+        update(diff);
+        setTimeString(getStringTime(diff));
     }
     setInterval(showRemaining, 100);
   };

@@ -1,5 +1,6 @@
 import Head from 'next/head';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { buffer } from 'stream/consumers';
 import EndPage from '../components/end-page';
 import GamePage from '../components/game-page';
 import StartPage from '../components/start-page';
@@ -19,13 +20,15 @@ const Foragele = ({ answers, correctId }: ForageleProps) => {
   const guesses = 4;
 
   const finishGame = (hasWon: boolean, timeRemaining: number, guessesRemaining: number, lossReason: LossReason | undefined) => {
-    setGameInfo({
+    const gameInfo = {
         isWinner: hasWon,
         lossReason: lossReason,
         correctAnswer: answers.find((answer) => answer.id === correctId) || {} as any,
         timeRemaining: timeRemaining,
         guessesRemaining: guessesRemaining
-    });
+    };
+    localStorage.setItem('foragele', Buffer.from(JSON.stringify(gameInfo), 'utf-8').toString('base64'));
+    setGameInfo(gameInfo);
     setGameState(GameState.End);
   };
 
@@ -39,7 +42,20 @@ const Foragele = ({ answers, correctId }: ForageleProps) => {
       case(GameState.Game): return(<GamePage minutes={timeLimitMinutes} guesses={guesses} finished={finishGame} correctId={correctId} possibleAnswers={answers}></GamePage>);
       case(GameState.End): return(<EndPage gameInfo={gameInfo}></EndPage>);
     }
-  }
+  };
+
+  useEffect(() => {
+    const encodedPrevGameInfo = localStorage.getItem('foragele');
+    if (encodedPrevGameInfo) {
+        const previousGameInfo = JSON.parse(Buffer.from(encodedPrevGameInfo, 'base64').toString('utf-8')) as GameInfo;
+        if (previousGameInfo.correctAnswer.id === correctId) {
+            setGameInfo(previousGameInfo);
+            setGameState(GameState.End);
+        } else {
+            localStorage.removeItem('foragele');
+        }
+    }
+  }, []);
 
   return (
     <div className={styles.container}>
