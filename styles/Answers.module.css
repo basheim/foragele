@@ -18,11 +18,11 @@
   margin: 0;
   width: 100%;
   background-color: #F0F2F5;
+  border: 1px solid lightgray;
 }
 
 .filter {
   border: none;
-  border-bottom: 1px solid grey;
   margin-top: -1px; /* Prevent double borders */
   display: block; /* Make it into a block element to fill the whole list */
   width: 100%;
@@ -33,7 +33,7 @@
 
 .filter::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
   color: black;
-  opacity: 1; /* Firefox */
+  opacity: .2; /* Firefox */
 }
 
 .filter:focus {
@@ -60,12 +60,11 @@
   display: block; /* Make it into a block element to fill the whole list */
   width: 100%;
   height: 2rem;
-  border-bottom: 1px solid grey;
   cursor: pointer;
 }
 
 .answerItem:hover:not(.header) {
-  background-color: lightgrey;
+  background-color: rgba(211, 211, 211, 0.4);
 }
 
 @media (max-width: 800px) {

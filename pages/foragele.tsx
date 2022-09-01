@@ -27,7 +27,8 @@ const Foragele = ({ answers, correctId }: ForageleProps) => {
         timeRemaining: timeRemaining,
         guessesRemaining: guessesRemaining
     };
-    localStorage.setItem('foragele', Buffer.from(JSON.stringify(gameInfo), 'utf-8').toString('base64'));
+    // comment out for testing
+    // localStorage.setItem('foragele', Buffer.from(JSON.stringify(gameInfo), 'utf-8').toString('base64'));
     setGameInfo(gameInfo);
     setGameState(GameState.End);
   };
