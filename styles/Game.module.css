@@ -46,6 +46,13 @@
   padding-top: 2rem;
 }
 
+.fullScreenRow {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  padding-top: 2rem;
+}
+
 .halfScreen {
   width: 50%;
   padding: 0 1rem;
@@ -67,7 +74,6 @@
   display: flex;
   width: 100%;
   justify-content: space-between;
-  height: 40vh;
 }
 
 .timerContainer {
@@ -94,16 +100,21 @@
     padding-top: 0;
   }
 
+  .fullScreenRow {
+    display: flex;
+    flex-direction: column;  
+    width: 100%;
+    height: auto;
+  }
+
   .halfScreen {
     width: 100%;
     padding-bottom: 2rem;
-    height: 35vh;
   }
 
   .halfScreenBorder {
     width: 100%;
     padding-bottom: 2rem;
-    height: 35vh;
     border: 1px solid lightgrey;
   }
 }

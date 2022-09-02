@@ -14,7 +14,13 @@ const AnswerItem = ({ answer, submitted }: AnswerItemProps) => {
   const [openAnswerModal, setOpenAnswerModal] = useState<boolean>(false);
 
   const getHints = (): (string | undefined)[] => {
-    return [answer.region, answer.edibility, answer.mostNotableFeature];
+    return [
+      `<b>Latin name</b>: ${answer.latin}`,
+      `<b>Feature</b>: ${answer.keyFeatures}`,
+      `<b>Edibility</b>: ${answer.edibility}`,
+      `<b>Found near</b>: ${answer.foundNear}`,
+      `<b>Poisonous look alike</b>: ${answer.poisonousLookAlike}`
+    ];
   }
 
   const open = () => {

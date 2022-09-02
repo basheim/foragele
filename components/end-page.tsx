@@ -25,19 +25,22 @@ const EndPage = ({ gameInfo }: EndPageProps) => {
   return (
     <div className={styles.gameContainer}>
       <h1 className={styles.title}>{getTitleText()}</h1>
-      <div className={styles.dataContainer}>
-        <div className={styles.halfScreen}>
-          <img src={gameInfo.correctAnswer.imageUrl}></img>
-        </div>
+      <div className={styles.fullScreen}>
+        <img src={gameInfo.correctAnswer.imageUrl}></img>
+      </div>
+      <div className={styles.fullScreenRow}>
         <div className={styles.halfScreenBorder}>
           <h2>Plant Information</h2>
           <ul>
             <li>{`Name: ${gameInfo.correctAnswer.english}`}</li>
             <li>{`Latin: ${gameInfo.correctAnswer.latin}`}</li>
-            <li>{`Region: ${gameInfo.correctAnswer.region}`}</li>
+            <li>{`Found Near: ${gameInfo.correctAnswer.foundNear}`}</li>
             <li>{`Edibility: ${gameInfo.correctAnswer.edibility}`}</li>
-            <li>{`A Notable Feature: ${gameInfo.correctAnswer.mostNotableFeature}`}</li>
+            <li>{`Key Features: ${gameInfo.correctAnswer.keyFeatures}`}</li>
+            <li>{`Poisonous Look Alike: ${gameInfo.correctAnswer.poisonousLookAlike}`}</li>
           </ul>
+        </div>
+        <div className={styles.halfScreenBorder}>
           <h2>Game Stats</h2>
           <ul>
             <li>{`Time Remaining: ${getStringTime(gameInfo.timeRemaining)}`}</li>

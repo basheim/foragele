@@ -4,9 +4,10 @@ export interface Answer {
   id: string;
   english: string;
   latin: string;
-  region: string;
+  foundNear: string;
   edibility: string;
-  mostNotableFeature: string;
+  keyFeatures: string;
+  poisonousLookAlike: string;
   imageUrl: string;
   start: Date;
   end: Date;

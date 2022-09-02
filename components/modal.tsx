@@ -16,7 +16,7 @@ const Modal = ({ modalOpen, title, items, acceptAction, setClose}: ModalProps) =
     for (let i = 0; i < items.length; i++) {
       if (items[i] !== undefined) {
         htmlList.push(
-          <li value={items[i]} key={i}>{items[i]}</li>
+          <li value={items[i]} key={i} dangerouslySetInnerHTML={{ __html: items[i] || "" }}></li>
         );
       }
     }
