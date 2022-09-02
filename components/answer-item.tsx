@@ -31,11 +31,11 @@ const AnswerItem = ({ answer, submitted }: AnswerItemProps) => {
   };
 
   return (
-    <li value={answer.name} className={styles.answerItem} onClick={open}>
+    <li value={answer.english} className={styles.answerItem} onClick={open}>
       <div className={styles.centeringDiv}>
-        <p>{answer.name}</p>
+        <p>{answer.english}</p>
       </div>
-      <Modal modalOpen={openAnswerModal} items={getHints()} title={answer.name} setClose={close} acceptAction={submit}></Modal>
+      <Modal modalOpen={openAnswerModal} items={getHints()} title={answer.english} setClose={close} acceptAction={submit}></Modal>
     </li>
   )
 }

@@ -51,6 +51,12 @@
   padding: 0 1rem;
 }
 
+.halfScreenBorder {
+  width: 50%;
+  padding: 0 1rem;
+  border: 1px solid lightgrey;
+}
+
 .halfScreen img {
   object-fit: contain;
   width: 100%;
@@ -92,5 +98,12 @@
     width: 100%;
     padding-bottom: 2rem;
     height: 35vh;
+  }
+
+  .halfScreenBorder {
+    width: 100%;
+    padding-bottom: 2rem;
+    height: 35vh;
+    border: 1px solid lightgrey;
   }
 }

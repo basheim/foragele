@@ -15,10 +15,10 @@ const Answers = ({ possibleAnswers, correctId, incorrectAnswer, correctAnswer }:
 
   const getAnswerList = () => {
     const items = [];
-    for (const answer of possibleAnswers.sort((a, b) => a.name.toLowerCase().charAt(0).localeCompare(b.name.toLowerCase().charAt(0)))) {
-      if (answer.name.toLowerCase().includes(filter.toLowerCase())) {
+    for (const answer of possibleAnswers.sort((a, b) => a.english.toLowerCase().charAt(0).localeCompare(b.english.toLowerCase().charAt(0)))) {
+      if (answer.english.toLowerCase().includes(filter.toLowerCase())) {
         items.push(
-          <AnswerItem key={`${answer.id}-${answer.name}`} answer={answer} submitted={() => submit(answer.id === correctId ? correctAnswer : incorrectAnswer)}></AnswerItem>
+          <AnswerItem key={`${answer.id}-${answer.english}`} answer={answer} submitted={() => submit(answer.id === correctId ? correctAnswer : incorrectAnswer)}></AnswerItem>
         );
       }
     }

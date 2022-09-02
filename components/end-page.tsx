@@ -29,26 +29,27 @@ const EndPage = ({ gameInfo }: EndPageProps) => {
         <div className={styles.halfScreen}>
           <img src={gameInfo.correctAnswer.imageUrl}></img>
         </div>
-        <div className={styles.halfScreen}>
-          <h2>Plant Information:</h2>
+        <div className={styles.halfScreenBorder}>
+          <h2>Plant Information</h2>
           <ul>
-            <li>{`Name: ${gameInfo.correctAnswer.name}`}</li>
+            <li>{`Name: ${gameInfo.correctAnswer.english}`}</li>
+            <li>{`Latin: ${gameInfo.correctAnswer.latin}`}</li>
             <li>{`Region: ${gameInfo.correctAnswer.region}`}</li>
             <li>{`Edibility: ${gameInfo.correctAnswer.edibility}`}</li>
             <li>{`A Notable Feature: ${gameInfo.correctAnswer.mostNotableFeature}`}</li>
           </ul>
-          <h2>Game Stats:</h2>
+          <h2>Game Stats</h2>
           <ul>
             <li>{`Time Remaining: ${getStringTime(gameInfo.timeRemaining)}`}</li>
             <li>{`Guesses Remaining: ${gameInfo.guessesRemaining}`}</li>
           </ul>
         </div>
       </div>
-      <div className={styles.fullScreen}>
+      {/* <div className={styles.fullScreen}>
         <Link href="/">
           <button className={`${styles.button} no-select`}>Back to home</button>
         </Link>
-      </div>
+      </div> */}
     </div>
   )
 }

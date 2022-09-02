@@ -10,12 +10,12 @@ import styles from '../styles/Home.module.css';
 
 interface ForageleProps {
   answers: Answer[];
-  correctId: string;
 }
 
-const Foragele = ({ answers, correctId }: ForageleProps) => {
+const Foragele = ({ answers }: ForageleProps) => {
   const [gameState, setGameState] = useState<GameState>(GameState.Start);
   const [gameInfo, setGameInfo] = useState<GameInfo>({} as any);
+  const [correctId, setCorrectId] = useState<string>("");
   const timeLimitMinutes = 2;
   const guesses = 4;
 
@@ -46,10 +46,28 @@ const Foragele = ({ answers, correctId }: ForageleProps) => {
   };
 
   useEffect(() => {
+    const now = new Date();
+    const userTimezoneOffset = now.getTimezoneOffset() * 60000;
+    let maybeCorrectId = undefined;
+    for (let answer of answers) {
+      const start = (new Date(answer.start)).getTime() + userTimezoneOffset;
+      const end = (new Date(answer.end)).getTime() + userTimezoneOffset;
+      if (start <= now.getTime() && end >= now.getTime()) {
+        maybeCorrectId = answer.id;
+      }
+    }
+
+    if (!maybeCorrectId) {
+      throw new Error("CRAP. no ID found.")
+    }
+
+    setCorrectId(maybeCorrectId);
+
+
     const encodedPrevGameInfo = localStorage.getItem('foragele');
     if (encodedPrevGameInfo) {
         const previousGameInfo = JSON.parse(Buffer.from(encodedPrevGameInfo, 'base64').toString('utf-8')) as GameInfo;
-        if (previousGameInfo.correctAnswer.id === correctId) {
+        if (previousGameInfo.correctAnswer.id === maybeCorrectId) {
             setGameInfo(previousGameInfo);
             setGameState(GameState.End);
         } else {
@@ -81,11 +99,11 @@ const Foragele = ({ answers, correctId }: ForageleProps) => {
 
 // This also gets called at build time
 export async function getStaticProps() {
-  const res = await fetch(`http://beans-backend-lb-1879534989.us-west-2.elb.amazonaws.com:80/api/v1/plants`);
-  const answers = await res.json()
+  const res = await fetch(`http://beans-backend-lb-282639646.us-west-2.elb.amazonaws.com:80/api/v1/plants`);
+  const answers = await res.json() as Answer[];
 
   // Pass post data to the page via props
-  return { props: { answers, correctId: "1" } }
+  return { props: { answers } }
 }
 
 export default Foragele
