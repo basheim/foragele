@@ -79,8 +79,8 @@ const Foragele = ({ answers }: ForageleProps) => {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Foragele</title>
-        <meta name="description" content="Learn more about wild plants!" />
+        <title>Foragele - Learn more about wild plants!!</title>
+        <meta name="description" content="A guessing game associated with wild plants and fungi inspired by Wordle. Grow your knowledge of wild plants and fungi." />
         <link rel="apple-touch-icon" sizes="180x180" href="/foragele/apple-touch-icon.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="/foragele/favicon-32x32.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/foragele/favicon-16x16.png" />

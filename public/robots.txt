@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://programmingbean.com
+
+# Sitemaps
+Sitemap: https://programmingbean.com/sitemap.xml
