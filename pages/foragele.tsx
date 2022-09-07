@@ -99,7 +99,7 @@ const Foragele = ({ answers }: ForageleProps) => {
 
 // This also gets called at build time
 export async function getStaticProps() {
-  const res = await fetch(`http://beans-backend-lb-282639646.us-west-2.elb.amazonaws.com:80/api/v1/plants`);
+  const res = await fetch(`https://backend.programmingbean.com/api/v1/plants`);
   const answers = await res.json() as Answer[];
 
   // Pass post data to the page via props
