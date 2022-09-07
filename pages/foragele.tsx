@@ -78,7 +78,7 @@ const Foragele = ({ answers }: ForageleProps) => {
 
   return (
     <div className={styles.container}>
-      <Script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9555454070901210" crossOrigin="anonymous"></Script>
+      <Script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9555454070901210"></Script>
       <Head>
         <title>Foragele - Learn more about wild plants!!</title>
         <meta name="description" content="A guessing game associated with wild plants and fungi inspired by Wordle. Grow your knowledge of wild plants and fungi." />

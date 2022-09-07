@@ -1,11 +1,13 @@
 import Head from 'next/head';
 import Link from 'next/link';
+import Script from 'next/script';
 import styles from '../styles/Home.module.css';
 
 
 const Home = () => {
   return (
     <div className={styles.container}>
+      <Script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9555454070901210"></Script>
       <Head>
         <title>Programming with Bean</title>
         <meta name="description" content="Website with Bean's programming projects, games, and blog. Still growing, but some content to see." />
@@ -16,7 +18,6 @@ const Home = () => {
         <link rel="android-chrome-512x512" type="image/png" sizes="512x512" href="/main/android-chrome-512x512.png" />
         <link rel="shortcut icon" href="/main/favicon.ico" />
         <link rel="manifest" href="/main/site.webmanifest" />
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9555454070901210" crossOrigin="anonymous"></script>
       </Head>
 
       <main className={styles.main}>
