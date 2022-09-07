@@ -1,6 +1,6 @@
 import Head from 'next/head';
+import Script from 'next/script';
 import { useEffect, useState } from 'react';
-import { buffer } from 'stream/consumers';
 import EndPage from '../components/end-page';
 import GamePage from '../components/game-page';
 import StartPage from '../components/start-page';
@@ -78,6 +78,7 @@ const Foragele = ({ answers }: ForageleProps) => {
 
   return (
     <div className={styles.container}>
+      <Script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9555454070901210" crossOrigin="anonymous"></Script>
       <Head>
         <title>Foragele - Learn more about wild plants!!</title>
         <meta name="description" content="A guessing game associated with wild plants and fungi inspired by Wordle. Grow your knowledge of wild plants and fungi." />
@@ -88,9 +89,7 @@ const Foragele = ({ answers }: ForageleProps) => {
         <link rel="android-chrome-512x512" type="image/png" sizes="512x512" href="/foragele/android-chrome-512x512.png" />
         <link rel="shortcut icon" href="/foragele/favicon.ico" />
         <link rel="manifest" href="/foragele/site.webmanifest" />
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9555454070901210" crossOrigin="anonymous"></script>
       </Head>
-
       <main className={styles.main}>
         {getGamePage()}
       </main>
