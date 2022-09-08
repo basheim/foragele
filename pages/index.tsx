@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import Script from 'next/script';
+import TopBar from '../components/navigation/top-bar';
 import styles from '../styles/Home.module.css';
 
 
@@ -19,12 +20,9 @@ const Home = () => {
         <link rel="shortcut icon" href="/main/favicon.ico" />
         <link rel="manifest" href="/main/site.webmanifest" />
       </Head>
-
+      <TopBar></TopBar>
       <main className={styles.main}>
         <h1 className={styles.title}>Nothing to see here...for now</h1>
-        <Link href="/foragele">
-          <button className={`${styles.button} no-select`}>Go to Foragele</button>
-        </Link>
       </main>
     </div>
   )

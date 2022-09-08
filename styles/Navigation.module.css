@@ -1,0 +1,39 @@
+.barContainer {
+  position: sticky;
+  width: 100%;
+  display: flex;
+  justify-content: left;
+  padding: 0 0.5rem;
+  border-bottom: 1px solid rgba(211, 211, 211, 0.7);
+  background-color:  rgba(211, 211, 211, 0.6);
+  opacity: 0.6;
+}
+
+.itemContainer {
+  width: auto;
+  height: auto;
+  text-align: center;
+  border-left: 1px solid rgba(211, 211, 211, 0.7);
+  border-right: 1px solid rgba(211, 211, 211, 0.7);
+  background-color: rgba(128, 128, 128, 0.3);
+  padding: 0 0.75rem 0 0.75rem;
+  cursor: pointer;
+}
+
+.itemContainer:hover {
+  background-color: grey;
+}
+
+.textContainer {
+  width: auto;
+  height: auto;
+  text-align: center;
+  padding: 0 1.5rem 0 0.75rem;
+  cursor:default;
+}
+
+
+@media (max-width: 800px) {
+
+}
+

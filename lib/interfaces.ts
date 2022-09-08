@@ -20,3 +20,8 @@ export interface GameInfo {
   timeRemaining: number;
   guessesRemaining: number;
 };
+
+export interface Nav {
+  text: string;
+  path: string;
+}

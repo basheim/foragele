@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { LossReason } from '../../lib/enums';
 import { getStringTime } from '../../lib/helpers';
 import { GameInfo } from '../../lib/interfaces';
@@ -47,11 +48,11 @@ const EndPage = ({ gameInfo }: EndPageProps) => {
           </ul>
         </div>
       </div>
-      {/* <div className={styles.fullScreen}>
+      <div className={styles.fullScreen}>
         <Link href="/">
           <button className={`${styles.button} no-select`}>Back to home</button>
         </Link>
-      </div> */}
+      </div>
     </div>
   )
 }
