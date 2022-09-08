@@ -1,5 +1,5 @@
 .modalContainer {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -10,6 +10,16 @@
   align-items: center;
   z-index: 100;
   cursor: default;
+}
+
+.listContainer {
+  display: flex;
+  flex-direction: column;
+  padding: 0.2rem;
+}
+
+.listItem {
+  padding: 0.4rem;
 }
 
 .modal {
@@ -66,5 +76,6 @@
   .modal {
     width: 90%;
     padding: 1rem 0.2rem;
+    font-size: 1.1rem;
   }
 }

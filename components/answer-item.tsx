@@ -16,10 +16,10 @@ const AnswerItem = ({ answer, submitted }: AnswerItemProps) => {
   const getHints = (): (string | undefined)[] => {
     return [
       `<b>Latin name</b>: ${answer.latin}`,
-      `<b>Feature</b>: ${answer.keyFeatures}`,
+      `<b>Features</b>: ${answer.keyFeatures}`,
       `<b>Edibility</b>: ${answer.edibility}`,
       `<b>Found near</b>: ${answer.foundNear}`,
-      `<b>Poisonous look alike</b>: ${answer.poisonousLookAlike}`
+      `<b>Poisonous lookalike</b>: ${answer.poisonousLookAlike}`
     ];
   }
 

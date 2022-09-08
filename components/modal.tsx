@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styles from '../styles/Modal.module.css';
 
 export interface ModalProps {
@@ -16,12 +16,21 @@ const Modal = ({ modalOpen, title, items, acceptAction, setClose}: ModalProps) =
     for (let i = 0; i < items.length; i++) {
       if (items[i] !== undefined) {
         htmlList.push(
-          <li value={items[i]} key={i} dangerouslySetInnerHTML={{ __html: items[i] || "" }}></li>
+          <span className={styles.listItem} key={i} dangerouslySetInnerHTML={{ __html: items[i] || "" }}></span>
         );
       }
     }
     return htmlList;
   };
+
+  useEffect((): any => {
+    if (modalOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+  }, [modalOpen]);
+
 
   const click = (e: any) => {
     e.stopPropagation();
@@ -41,9 +50,9 @@ const Modal = ({ modalOpen, title, items, acceptAction, setClose}: ModalProps) =
             <div className={styles.content}>
               <h2 className={styles.title}>{title}</h2>
               {items &&
-                <ul>
+                <div className={styles.listContainer}>
                   {getList()}
-                </ul>
+                </div>
               }
             </div>
             <div className={styles.buttonDiv}>

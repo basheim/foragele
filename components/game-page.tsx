@@ -41,14 +41,14 @@ const GamePage = ({ minutes, guesses, finished, correctId, possibleAnswers }: Ga
       const correctAnswer = getCorrectAnswer();
       if (correctAnswer) {
         if (guessesRemaining === 4) {
-          hints.push(`<b>Feature</b>: ${correctAnswer.keyFeatures}`);
+          hints.push(`<b>Features</b>: ${correctAnswer.keyFeatures}`);
           setHints(hints);
         } else if (guessesRemaining === 3) {
           hints.push(`<b>Edibility</b>: ${correctAnswer.edibility}`);
           hints.push(`<b>Found near</b>: ${correctAnswer.foundNear}`);
           setHints(hints);
         } else if (guessesRemaining === 2) {
-          hints.push(`<b>Poisonous look alike</b>: ${correctAnswer.poisonousLookAlike}`);
+          hints.push(`<b>Poisonous lookalike</b>: ${correctAnswer.poisonousLookAlike}`);
           setHints(hints);
         }
       }
