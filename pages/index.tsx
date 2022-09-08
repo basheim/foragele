@@ -21,7 +21,7 @@ const Home = () => {
       </Head>
 
       <main className={styles.main}>
-        <h1>Nothing to see here...for now</h1>
+        <h1 className={styles.title}>Nothing to see here...for now</h1>
         <Link href="/foragele">
           <button className={`${styles.button} no-select`}>Go to Foragele</button>
         </Link>
