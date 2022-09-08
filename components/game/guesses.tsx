@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import styles from '../styles/Animations.module.css';
+import styles from '../../styles/Animations.module.css';
 
 export interface GuessesProps {
   guessCount: number;

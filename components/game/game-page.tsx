@@ -1,11 +1,12 @@
-import styles from '../styles/Game.module.css';
+import styles from '../../styles/Game.module.css';
 import { useState, useEffect } from 'react';
 import Answers from './answers';
-import Timer from './timer';
-import Modal from './modal';
-import { Answer } from '../lib/interfaces';
+import { Answer } from '../../lib/interfaces';
+import { LossReason } from '../../lib/enums';
 import Guesses from './guesses';
-import { LossReason } from '../lib/enums';
+import Timer from '../general/timer';
+import Modal from '../general/modal';
+
 
 export interface GamePageProps {
   minutes: number;

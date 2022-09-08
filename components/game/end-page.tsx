@@ -1,8 +1,7 @@
-import Link from 'next/link';
-import { LossReason } from '../lib/enums';
-import { getStringTime } from '../lib/helpers';
-import { Answer, GameInfo } from '../lib/interfaces';
-import styles from '../styles/Game.module.css';
+import { LossReason } from '../../lib/enums';
+import { getStringTime } from '../../lib/helpers';
+import { GameInfo } from '../../lib/interfaces';
+import styles from '../../styles/Game.module.css';
 
 export interface EndPageProps {
   gameInfo: GameInfo;

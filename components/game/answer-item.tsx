@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import { Answer } from '../lib/interfaces';
-import styles from '../styles/Answers.module.css';
-import Modal from './modal';
+import { Answer } from '../../lib/interfaces';
+import styles from '../../styles/Answers.module.css';
+import Modal from '../general/modal';
 
 
 export interface AnswerItemProps {

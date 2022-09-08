@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { getStringTime, MINUTE_IN_MS } from '../lib/helpers';
+import { getStringTime, MINUTE_IN_MS } from '../../lib/helpers';
 
 export interface TimerProps {
   addedMinutes: number;

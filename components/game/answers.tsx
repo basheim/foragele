@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import { Answer } from '../lib/interfaces';
-import styles from '../styles/Answers.module.css';
+import { Answer } from '../../lib/interfaces';
+import styles from '../../styles/Answers.module.css';
 import AnswerItem from './answer-item';
 
 export interface AnswersProps {
