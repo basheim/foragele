@@ -30,18 +30,24 @@
   height: auto;
   justify-content: left;
   display: none;
+  margin: 0.5rem;
 }
 
-.mobileDropdownItem {
+.mobileDropdownItem1, .mobileDropdownItem2{
   width: auto;
   height: auto;
   text-align: center;
-  padding: 0 0.75rem 0 0.75rem;
   cursor: pointer;
   display: none;
+  align-items: center;
+  justify-content: center;
 }
 
-.mobileDropdownItem:hover {
+.mobileDropdownItem1 {
+  background-color: rgb(230, 230, 230);
+}
+
+.mobileDropdownItem1:hover, .mobileDropdownItem2:hover {
   background-color: grey;
 }
 
@@ -120,7 +126,7 @@
     font-size: 1.3rem;
   }
 
-  .mobileDropdownItem {
+  .mobileDropdownItem1, .mobileDropdownItem2 {
     display: flex;
     font-size: 1.3rem;
   }
