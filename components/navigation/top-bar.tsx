@@ -10,14 +10,14 @@ const TopBar = ({ }: TopBarProps) => {
 
   const getNavItems = () => {
     const navItems = [
-      <MobileItem></MobileItem>,
-      <div className={styles.textContainer}>
+      <MobileItem key='mobile-icon'></MobileItem>,
+      <div key='title' className={styles.textContainer}>
         <h3>Programming with Bean</h3>
       </div>
     ];
     for (const item of navOptions) {
       navItems.push(
-        <NavItem key={item.text} nav={item} customClass={"topBarItem"}></NavItem>
+        <NavItem key={`top-${item.text}`} nav={item} customClass={"topBarItem"}></NavItem>
       )
     }
     return navItems;

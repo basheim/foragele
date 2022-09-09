@@ -102,22 +102,27 @@
 @media (max-width: 800px) {
   .mobileDropdownContainerClose {
     display: flex;
+    font-size: 1.3rem;
   }
 
   .mobileDropdownContainerOpen {
     display: flex;
+    font-size: 1.3rem;
   }
 
   .mobileDropdownXContainer {
     display: flex;
+    font-size: 1.3rem;
   }
 
   .mobileItem {
     display: flex;
+    font-size: 1.3rem;
   }
 
   .mobileDropdownItem {
     display: flex;
+    font-size: 1.3rem;
   }
 
   .topBarItem {

@@ -12,7 +12,7 @@ const MobileDropdown = ({ open, setClose }: MobileDropdownProps) => {
 
   const getNavItems = () => {
     const navItems = [
-      <div className={styles.mobileDropdownXContainer}>
+      <div key='mobile-x' className={styles.mobileDropdownXContainer}>
         <div className={styles.mobileDropdownItem} onClick={setClose}>
           <img src="/x.svg" />
         </div>
@@ -20,7 +20,7 @@ const MobileDropdown = ({ open, setClose }: MobileDropdownProps) => {
     ];
     for (const item of navOptions) {
       navItems.push(
-        <NavItem key={item.text} nav={item} customClass={"mobileDropdownItem"} additionalAction={setClose}></NavItem>
+        <NavItem key={`mobile-${item.text}`} nav={item} customClass={"mobileDropdownItem"} additionalAction={setClose}></NavItem>
       )
     }
     return navItems;
