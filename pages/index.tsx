@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import Script from 'next/script';
+import Bannor from '../components/layout/bannor';
 import TopBar from '../components/navigation/top-bar';
 import styles from '../styles/Home.module.css';
 
@@ -21,7 +22,7 @@ const Home = () => {
       </Head>
       <TopBar></TopBar>
       <main className={styles.main}>
-        <h1 className={styles.title}>Nothing to see here...for now</h1>
+        <Bannor backgroundColor="grey" title="test" subTitle="test1234123123132"></Bannor>
       </main>
     </div>
   )

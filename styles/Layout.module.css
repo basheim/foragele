@@ -1,0 +1,26 @@
+.bannorContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.bannorTitle {
+  align-self: flex-start;
+  margin: 0.5rem 0 0.5rem 2rem;
+}
+
+.bannorSubTitle {
+  align-self: flex-end;
+  margin: 0.5rem 2rem 0.5rem 10rem;
+}
+
+.link {
+  cursor: pointer;
+}
+
+@media (max-width: 800px) {
+  
+}
+
