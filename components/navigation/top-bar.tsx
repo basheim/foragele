@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react';
 import { navOptions } from '../../lib/navigation-constants';
 import styles from '../../styles/Navigation.module.css';
@@ -11,14 +12,18 @@ const TopBar = ({ }: TopBarProps) => {
   const getNavItems = () => {
     const navItems = [
       <MobileItem key='mobile-icon'></MobileItem>,
-      <div key='title' className={styles.textContainer}>
-        <h3>Programming with Bean</h3>
-      </div>
+      <Link href="/" key='title'>
+        <div className={styles.textContainer}>
+          <h3>Programming with Bean</h3>
+        </div>
+      </Link>
     ];
     for (const item of navOptions) {
-      navItems.push(
-        <NavItem key={`top-${item.text}`} nav={item} customClass={"topBarItem"}></NavItem>
-      )
+      if (item.path !== "/") {
+        navItems.push(
+          <NavItem key={`top-${item.text.replace(/ /g, '-')}`} nav={item} customClass={"topBarItem"}></NavItem>
+        )
+      }
     }
     return navItems;
   };

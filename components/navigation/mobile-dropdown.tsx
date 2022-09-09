@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { navOptions } from '../../lib/navigation-constants';
 import styles from '../../styles/Navigation.module.css';
 import NavItem from './nav-item';
@@ -29,7 +29,7 @@ const MobileDropdown = ({ open, setClose }: MobileDropdownProps) => {
     ];
     for (const item of navOptions) {
       navItems.push(
-        <NavItem key={`mobile-${item.text}`} nav={item} customClass={light ? "mobileDropdownItem1" : "mobileDropdownItem2"} additionalAction={setClose}></NavItem>
+        <NavItem key={`mobile-${item.text.replace(/ /g, '-')}`} nav={item} customClass={light ? "mobileDropdownItem1" : "mobileDropdownItem2"} additionalAction={setClose}></NavItem>
       )
       light = !light;
     }

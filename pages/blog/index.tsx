@@ -1,16 +1,16 @@
 import Head from 'next/head';
 import Script from 'next/script';
-import TopBar from '../components/navigation/top-bar';
-import styles from '../styles/Home.module.css';
+import TopBar from '../../components/navigation/top-bar';
+import styles from '../../styles/Home.module.css';
 
 
-const Home = () => {
+const BlogHome = () => {
   return (
     <div className={styles.container}>
       <Script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9555454070901210"></Script>
       <Head>
-        <title>Programming with Bean</title>
-        <meta name="description" content="Website with Bean's programming projects, games, and blog. Still growing, but some content to see." />
+        <title>Programming with Bean - Blog</title>
+        <meta name="description" content="Website with Bean's programming projects, games, and blog. Centeral page for blog related posts." />
         <link rel="apple-touch-icon" sizes="180x180" href="/main/apple-touch-icon.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="/main/favicon-32x32.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/main/favicon-16x16.png" />
@@ -27,4 +27,4 @@ const Home = () => {
   )
 }
 
-export default Home
+export default BlogHome;
