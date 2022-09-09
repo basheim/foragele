@@ -1,5 +1,7 @@
+import React from 'react';
 import { navOptions } from '../../lib/navigation-constants';
 import styles from '../../styles/Navigation.module.css';
+import MobileItem from './mobile-item';
 import NavItem from './nav-item';
 
 export interface TopBarProps {}
@@ -8,13 +10,14 @@ const TopBar = ({ }: TopBarProps) => {
 
   const getNavItems = () => {
     const navItems = [
+      <MobileItem></MobileItem>,
       <div className={styles.textContainer}>
         <h3>Programming with Bean</h3>
       </div>
     ];
     for (const item of navOptions) {
       navItems.push(
-        <NavItem nav={item}></NavItem>
+        <NavItem key={item.text} nav={item} customClass={"topBarItem"}></NavItem>
       )
     }
     return navItems;
