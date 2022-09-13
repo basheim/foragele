@@ -28,15 +28,13 @@ const Home = () => {
       </Head>
       <TopBar></TopBar>
       <main className={styles.main}>
-        <Bannor backgroundColor="grey" title="test" subTitle="test1234123123132"></Bannor>
+        <Bannor backgroundColor="#a3bce3" title="Play Foragele Here!" subTitle="Learn about wild plants and fungi!" urlPath="/foragele"></Bannor>
         <Hor>
           <Sidebar backgroundColor="lightgrey">
-            <RowItem title="test"></RowItem>
-            <RowItem title="test2"></RowItem>
-            <RowItem title="test3" urlPath="/foragele"></RowItem>
+            <RowItem title="About Me" subTitle="Learn more about the author." urlPath='/about'></RowItem>
           </Sidebar>
           <Vert>
-            <TextItem backgroundColor="lightgrey" title="test" subTitle="test1234123123132" body="123123123123123123"></TextItem>
+            <TextItem title="The Beginning" body="This is just the beginning of the wedsite. More games, blog posts, and general programming content will be added soon."></TextItem>
           </Vert>
         </Hor>
       </main>
