@@ -35,6 +35,19 @@
   background-color:  rgba(211, 211, 211, 1);
 }
 
+.imageContainer img {
+  object-fit: contain;
+  width: 100%;
+}
+
+.aboutTitle {
+  margin-bottom: 0;
+}
+
+.aboutInfo {
+  margin-top: 0.4rem;
+  margin-bottom: 0;
+}
 
 @media (max-width: 800px) {
   .container {

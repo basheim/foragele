@@ -27,6 +27,7 @@
 }
 
 .rowItemContainer {
+  margin: .5rem 0;
   overflow: hidden;
   width: 100%;
   height: 100%;
@@ -51,7 +52,7 @@
 }
 
 .title {
-  margin-bottom: 0;
+  margin: 0;
 }
 
 .subtitle {

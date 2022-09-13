@@ -23,7 +23,7 @@ const RowItem = ({ imageUrl, title, subTitle, backgroundColor, body, textColor, 
           color: textColor && textColor
         }}
       >
-        {title && <h2 className={styles.title}>{title}</h2>}
+        {title && <h3 className={styles.title}>{title}</h3>}
         {subTitle && <h4 className={styles.subtitle}>{subTitle}</h4>}
         {imageUrl && <img src={imageUrl}/>}
         {body && <div className={styles.bodyContainer}>
