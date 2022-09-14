@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import Script from 'next/script';
+import ChildItem from '../components/layout/child-item';
 import Hor from '../components/layout/hor';
 import RowItem from '../components/layout/row-item';
 import Sidebar from '../components/layout/sidebar';
@@ -31,13 +32,38 @@ const About = () => {
             <div className={styles.imageContainer}>
               <img src="/profile.jpg"/>
             </div>
-            <h3 className={styles.aboutTitle}>Brandon Asheim</h3>
-            <h5 className={styles.aboutInfo}>Full Stack Software Engineer</h5>
+            <h4 className={styles.aboutInfo}>Full Stack Software Engineer</h4>
             <h5 className={styles.aboutInfo}>6 Years Experience</h5>
             <RowItem title='Download Resume' urlPath='/resume.pdf'></RowItem>
           </Sidebar>
           <Vert>
-            <iframe src="https://drive.google.com/file/d/1bc7U1aebdUZDXnbx8iKxotXc37IOEzem/preview" height="1000" allow="autoplay" frameBorder={0}></iframe>
+            <ChildItem>
+              <h2>Brandon Asheim</h2>
+              <p>Quality driven full stack developer with 5+ years of experience building scalable web applications and internal tools.</p>
+              <h4>Work Experience</h4>
+              <ul>
+                <li>Software Engineer - Bluecrew Inc.</li>
+                <li>Software Engineer - Qualtrics Inc.</li>
+                <li>Software Development in Test - Qualtrics Inc.</li>
+                <li>Software Test Engineer - Qualtrics Inc.</li>
+                <li>Product Engineer - Micron Inc.</li>
+              </ul>
+              <h4>Acedemics</h4>
+              <ul>
+                <li>BS in Electrical Engineering from University of Washington</li>
+              </ul>
+              <h4>Skills</h4>
+              <ul>
+                <li>ReactJS</li>
+                <li>Javascript</li>
+                <li>NodeJS</li>
+                <li>Spring</li>
+                <li>Java</li>
+                <li>Python</li>
+                <li>AWS</li>
+                <li>Firebase</li>
+              </ul>
+            </ChildItem>
           </Vert>
         </Hor>
       </main>

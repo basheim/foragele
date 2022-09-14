@@ -74,6 +74,10 @@
   cursor: pointer;
 }
 
+.childContainer {
+  padding: 1rem;
+}
+
 @media (max-width: 800px) {
   .sidebarContainer {
     display: none;
