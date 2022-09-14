@@ -37,7 +37,7 @@ const About = () => {
             <h5 className={styles.aboutInfo}>6 Years Experience</h5>
             <RowItem title='Download Resume' urlPath='/resume.pdf'></RowItem>
           </Sidebar>
-          <Vert>
+          <Vert fullScreen>
             <ChildItem>
               <h2>Brandon Asheim</h2>
               <p>Quality driven full stack developer with 5+ years of experience building scalable web applications and internal tools.</p>

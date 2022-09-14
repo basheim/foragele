@@ -34,7 +34,7 @@ const Home = () => {
           <Sidebar backgroundColor="lightgrey">
             <RowItem title="About Me" subTitle="Learn more about the author." urlPath='/about'></RowItem>
           </Sidebar>
-          <Vert>
+          <Vert fullScreen>
             <TextItem title="The Beginning" body="This is just the beginning of the wedsite. More games, blog posts, and general programming content will be added soon."></TextItem>
           </Vert>
         </Hor>

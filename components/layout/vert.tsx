@@ -5,15 +5,17 @@ export interface VertProps {
   children: any;
   align?: string;
   justify?: string;
+  fullScreen?: boolean;
 }
 
-const Vert = ({ children, align, justify }: VertProps) => {
+const Vert = ({ children, align, justify, fullScreen }: VertProps) => {
   return (
     <div 
       className={styles.vertContainer}
       style={{ 
         alignItems: align && align,
-        justifyContent: justify && justify
+        justifyContent: justify && justify,
+        minHeight: fullScreen ? "100vh" : "auto"
       }}
     >
       {children}
