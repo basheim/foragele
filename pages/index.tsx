@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import Script from 'next/script';
 import Bannor from '../components/layout/bannor';
+import Footer from '../components/layout/footer';
 import Hor from '../components/layout/hor';
 import RowItem from '../components/layout/row-item';
 import Sidebar from '../components/layout/sidebar';
@@ -37,6 +38,7 @@ const Home = () => {
             <TextItem title="The Beginning" body="This is just the beginning of the wedsite. More games, blog posts, and general programming content will be added soon."></TextItem>
           </Vert>
         </Hor>
+        <Footer></Footer>
       </main>
     </div>
   )

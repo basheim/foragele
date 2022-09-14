@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import Script from 'next/script';
 import ChildItem from '../components/layout/child-item';
+import Footer from '../components/layout/footer';
 import Hor from '../components/layout/hor';
 import RowItem from '../components/layout/row-item';
 import Sidebar from '../components/layout/sidebar';
@@ -66,6 +67,7 @@ const About = () => {
             </ChildItem>
           </Vert>
         </Hor>
+        <Footer></Footer>
       </main>
     </div>
   )
