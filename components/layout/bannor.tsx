@@ -15,7 +15,7 @@ const Bannor = ({ imageUrl, title, subTitle, backgroundColor, urlPath, textColor
   const getBannorBody = () => {
     return (
     <div 
-      className={urlPath ? styles.bannorContainer + " " + styles.link : styles.bannorContainer} 
+      className={urlPath ? styles.bannorContainer + " " + styles.bannorLink : styles.bannorContainer} 
       style={{ 
         backgroundImage: imageUrl && `url("${imageUrl}")`,
         backgroundColor: backgroundColor && backgroundColor,

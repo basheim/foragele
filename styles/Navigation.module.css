@@ -22,7 +22,7 @@
 }
 
 .topBarItem:hover {
-  background-color: grey;
+  color: white;
 }
 
 .mobileDropdownXContainer {
@@ -48,7 +48,7 @@
 }
 
 .mobileDropdownItem1:hover, .mobileDropdownItem2:hover {
-  background-color: grey;
+  color: white;
 }
 
 .mobileDropdownContainerClose {

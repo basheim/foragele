@@ -4,6 +4,7 @@
   flex-direction: column;
   background-repeat: no-repeat;
   background-size: cover;
+  margin: 1px;
 }
 
 .bannorTitle {
@@ -22,6 +23,7 @@
   min-width: 20%;
   overflow: hidden;
   height: 100%;
+  min-height: 100vh;
   padding: 1rem;
   overflow-wrap: break-word; 
 }
@@ -65,8 +67,11 @@
 }
 
 .link:hover {
-  opacity: 0.3;
-  background-color: darkgrey;
+  border: 1px solid black;
+}
+
+.bannorLink {
+  cursor: pointer;
 }
 
 @media (max-width: 800px) {
