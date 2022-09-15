@@ -26,7 +26,7 @@ const About = () => {
         <link rel="shortcut icon" href="/main/favicon.ico" />
         <link rel="manifest" href="/main/site.webmanifest" />
       </Head>
-      <TopBar></TopBar>
+      <TopBar/>
       <main className={styles.main}>
         <Hor>
           <Sidebar backgroundColor='lightgrey'>
@@ -35,7 +35,7 @@ const About = () => {
             </div>
             <h4 className={styles.aboutInfo}>Full Stack Software Engineer</h4>
             <h5 className={styles.aboutInfo}>6 Years Experience</h5>
-            <RowItem title='Download Resume' urlPath='/resume.pdf'></RowItem>
+            <RowItem title='Download Resume' urlPath='/resume.pdf'/>
           </Sidebar>
           <Vert fullScreen>
             <ChildItem>
@@ -67,7 +67,7 @@ const About = () => {
             </ChildItem>
           </Vert>
         </Hor>
-        <Footer></Footer>
+        <Footer/>
       </main>
     </div>
   )

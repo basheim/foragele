@@ -39,6 +39,10 @@
   width: 100%;
 }
 
+.imageContainer {
+  margin-bottom: 20px;
+}
+
 .aboutTitle {
   margin-bottom: 0;
 }

@@ -97,7 +97,7 @@ const Foragele = ({ answers }: ForageleProps) => {
   )
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const res = await fetch(`https://backend.programmingbean.com/api/v1/plants`);
   const answers = await res.json() as Answer[];
   return { props: { answers } }

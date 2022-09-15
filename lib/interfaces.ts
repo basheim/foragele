@@ -25,3 +25,21 @@ export interface Nav {
   text: string;
   path: string;
 }
+
+export interface PreviewData {
+  title: string;
+  summary: string;
+  createdDate: Date;
+  id: string;
+  tag: string;
+}
+
+export interface PostData {
+  title: string;
+  createdDate: Date;
+  id: string;
+  content: string;
+  author: string;
+  description: string;
+  tag: string;
+}

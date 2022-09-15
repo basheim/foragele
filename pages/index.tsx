@@ -15,7 +15,7 @@ const Home = () => {
 
   return (
     <div className={styles.container}>
-      <Script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9555454070901210"></Script>
+      <Script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9555454070901210"/>
       <Head>
         <title>Programming with Bean</title>
         <meta name="description" content="Website with Bean's programming projects, games, and blog. Still growing, but some content to see." />
@@ -27,18 +27,18 @@ const Home = () => {
         <link rel="shortcut icon" href="/main/favicon.ico" />
         <link rel="manifest" href="/main/site.webmanifest" />
       </Head>
-      <TopBar></TopBar>
+      <TopBar/>
       <main className={styles.main}>
-        <Bannor backgroundColor="#a3bce3" title="Play Foragele Here!" subTitle="Learn about wild plants and fungi!" urlPath="/foragele"></Bannor>
+        <Bannor backgroundColor="#a3bce3" title="Play Foragele Here!" subTitle="Learn about wild plants and fungi!" urlPath="/foragele"/>
         <Hor>
           <Sidebar backgroundColor="lightgrey">
-            <RowItem title="About Me" subTitle="Learn more about the author." urlPath='/about'></RowItem>
+            <RowItem title="About Me" subTitle="Learn more about the author." urlPath='/about'/>
           </Sidebar>
           <Vert fullScreen>
-            <TextItem title="The Beginning" body="This is just the beginning of the wedsite. More games, blog posts, and general programming content will be added soon."></TextItem>
+            <TextItem title="The Beginning" body="This is just the beginning of the wedsite. More games, blog posts, and general programming content will be added soon."/>
           </Vert>
         </Hor>
-        <Footer></Footer>
+        <Footer/>
       </main>
     </div>
   )
