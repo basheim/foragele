@@ -28,7 +28,7 @@ export interface Nav {
 
 export interface PreviewData {
   title: string;
-  summary: string;
+  description: string;
   createdDate: Date;
   id: string;
   tag: string;
