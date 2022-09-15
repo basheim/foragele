@@ -2,14 +2,32 @@ import Head from 'next/head';
 import Script from 'next/script';
 import Footer from '../../components/layout/footer';
 import Hor from '../../components/layout/hor';
+import RowItem from '../../components/layout/row-item';
 import Sidebar from '../../components/layout/sidebar';
 import TextItem from '../../components/layout/text-item';
 import Vert from '../../components/layout/vert';
 import TopBar from '../../components/navigation/top-bar';
+import { PreviewData } from '../../lib/interfaces';
 import styles from '../../styles/Home.module.css';
 
 
-const BlogHome = () => {
+export interface BlogHomeProps {
+  previews: PreviewData[];
+}
+
+const BlogHome = ({ previews }: BlogHomeProps) => {
+
+  const PREVIEW_LIMIT = 8;
+
+  const getPreviews = () => {
+    const limitedPreviews = previews.sort((a,b) => b.createdDate.getTime() - a.createdDate.getTime()).slice(0, PREVIEW_LIMIT);
+    const htmlList = [];
+    for (const preview of limitedPreviews) {
+      htmlList.push(<RowItem key={preview.id} title={preview.title} miniText={preview.description} urlPath={`/blog/${preview.id}`}/>)
+    }
+    return htmlList;
+  };
+
   return (
     <div className={styles.container}>
       <Script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9555454070901210"></Script>
@@ -28,7 +46,7 @@ const BlogHome = () => {
       <main className={styles.main}>
         <Hor>
           <Sidebar backgroundColor="lightgrey">
-            <p>Nothing here for now</p>
+            {getPreviews()}
           </Sidebar>
           <Vert fullScreen>
             <TextItem title="Blog Home" body="No blog posts for now, but will contain the newest blog posts in the future."/>
@@ -38,6 +56,12 @@ const BlogHome = () => {
       </main>
     </div>
   )
+}
+
+export async function getStaticProps() {
+  const res = await fetch(`https://backend.programmingbean.com/api/v1/previews`);
+  const previews = await res.json() as PreviewData[];
+  return { props: { previews } }
 }
 
 export default BlogHome;

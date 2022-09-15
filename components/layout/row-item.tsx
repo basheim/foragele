@@ -10,9 +10,10 @@ export interface RowItemProps {
   subTitle?: string;
   body?: string;
   urlPath?: string;
+  miniText?: string;
 }
 
-const RowItem = ({ imageUrl, title, subTitle, backgroundColor, body, textColor, urlPath }: RowItemProps) => {
+const RowItem = ({ imageUrl, title, subTitle, backgroundColor, body, textColor, urlPath, miniText }: RowItemProps) => {
   const getRowItem = () => {
     return (
       <div 
@@ -28,6 +29,9 @@ const RowItem = ({ imageUrl, title, subTitle, backgroundColor, body, textColor, 
         {imageUrl && <img src={imageUrl}/>}
         {body && <div className={styles.bodyContainer}>
           <p className={styles.body}>{body}</p>
+        </div>}
+        {miniText && <div className={styles.bodyContainer}>
+          <p className={styles.miniText}>{miniText}</p>
         </div>}
       </div>
     );

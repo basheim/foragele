@@ -1,14 +1,13 @@
 import Head from 'next/head';
 import Script from 'next/script';
-import ChildItem from '../../components/layout/child-item';
 import Footer from '../../components/layout/footer';
 import Hor from '../../components/layout/hor';
+import HtmlItem from '../../components/layout/html-item';
 import RowItem from '../../components/layout/row-item';
 import Sidebar from '../../components/layout/sidebar';
-import TextItem from '../../components/layout/text-item';
 import Vert from '../../components/layout/vert';
 import TopBar from '../../components/navigation/top-bar';
-import { PostData, PreviewData } from '../../lib/interfaces';
+import { PostData, PostPageData, PreviewData } from '../../lib/interfaces';
 import styles from '../../styles/Home.module.css';
 
 export interface PostProps {
@@ -20,7 +19,7 @@ const Post = ({post, previews} : PostProps) => {
   const getPreview = () => {
     const html = [];
     for (let preview of previews) {
-      html.push(<RowItem title={preview.title} subTitle={preview.description} urlPath={preview.id}/>)
+      html.push(<RowItem key={preview.id} title={preview.title} subTitle={preview.description} urlPath={preview.id}/>)
     }
     return html;
   };
@@ -46,15 +45,41 @@ const Post = ({post, previews} : PostProps) => {
            {getPreview()}
           </Sidebar>
           <Vert fullScreen>
-            <ChildItem>
-              {post.content}
-            </ChildItem>
+            <HtmlItem html={post.content}/>
           </Vert>
         </Hor>
         <Footer/>
       </main>
     </div>
   )
+}
+
+export interface Params {
+  params: {
+    id: string
+  }
+};
+
+export async function getStaticProps({ params }: Params) {
+  const res = await fetch(`https://backend.programmingbean.com/api/v1/posts/${params.id}`);
+  const postPage = await res.json() as PostPageData;
+  return { props: { post: postPage.post, previews: postPage.previews } };
+}
+
+export async function getStaticPaths() {
+  const res = await fetch(`https://backend.programmingbean.com/api/v1/posts/ids`);
+  const previews = await res.json() as String[];
+  
+  return { 
+    paths: previews.map((preview) => {
+      return {
+        params: {
+          id: preview
+        }
+      }
+    }),
+    fallback: false,
+  };
 }
 
 export default Post;

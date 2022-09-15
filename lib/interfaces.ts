@@ -31,7 +31,7 @@ export interface PreviewData {
   description: string;
   createdDate: Date;
   id: string;
-  tag: string;
+  tags: string;
 }
 
 export interface PostData {
@@ -41,5 +41,13 @@ export interface PostData {
   content: string;
   author: string;
   description: string;
-  tag: string;
+  tags: string;
+  prev: string;
+  next: string;
+}
+
+
+export interface PostPageData {
+  post: PostData;
+  previews: PreviewData[];
 }
