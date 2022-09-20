@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Link from 'next/link';
 import Script from 'next/script';
 import Footer from '../../components/layout/footer';
 import Hor from '../../components/layout/hor';
@@ -19,9 +20,29 @@ const Post = ({post, previews} : PostProps) => {
   const getPreview = () => {
     const html = [];
     for (let preview of previews) {
-      html.push(<RowItem key={preview.id} title={preview.title} subTitle={preview.description} urlPath={preview.id}/>)
+      html.push(<RowItem key={preview.id} title={preview.title} miniText={preview.description} urlPath={preview.id}/>)
     }
     return html;
+  };
+
+  const getButton = (href: string, buttonText: string) => {
+    return (
+      <div className={styles.buttonContainer}>
+        <Link href={href}>
+          <button className={styles.button}>{buttonText}</button>
+        </Link>
+      </div>
+    );
+  };
+
+  const getJustifyContent = () => {
+    if (post.prev && post.next) {
+      return "space-between";
+    } else if (post.prev) {
+      return "start";
+    } else {
+      return "end";
+    }
   };
 
   return (
@@ -44,8 +65,14 @@ const Post = ({post, previews} : PostProps) => {
           <Sidebar backgroundColor="lightgrey">
            {getPreview()}
           </Sidebar>
-          <Vert fullScreen>
+          <Vert fullScreen justify='space-between'>
             <HtmlItem html={post.content}/>
+            {(post.next || post.prev) && 
+              <Hor align='center' justify={getJustifyContent()}>
+                {post.prev && getButton(post.prev, "<- Prev")}
+                {post.next && getButton(post.next, "Next ->")}
+              </Hor>
+            }
           </Vert>
         </Hor>
         <Footer/>

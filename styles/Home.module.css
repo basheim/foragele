@@ -21,8 +21,11 @@
 }
 
 .button {
+  width: 100%;
   font-size: 1.5rem;
   padding:.5rem;
+  margin-top: .5rem;
+  margin-bottom: .5rem;
   border-radius: 1.5rem;
   border: none;
   cursor: pointer;
@@ -32,6 +35,11 @@
 
 .button:hover {
   background-color:  rgba(211, 211, 211, 1);
+}
+
+.buttonContainer {
+  padding: 1rem;
+  min-width: 25%;
 }
 
 .imageContainer img {
@@ -52,6 +60,16 @@
   margin-bottom: 0;
 }
 
+.sideTitle {
+  padding-bottom: 1rem;
+  margin: 0;
+  border-bottom: 1px solid black;
+}
+
+.searchContainer {
+  padding: 1rem;
+}
+
 @media (max-width: 800px) {
   .container {
     padding: 0;
@@ -59,6 +77,10 @@
 
   .main {
     padding: 0;
+  }
+
+  .buttonContainer {
+    min-width: 50%;
   }
 }
 

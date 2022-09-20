@@ -62,6 +62,7 @@
 
 .link {
   cursor: pointer;
+  border: 1px solid rgba(0,0,0,0);
 }
 
 .link:hover {
@@ -78,7 +79,7 @@
 
 .miniText {
   font-size: 0.6rem;
-  opacity: 0.6;
+  color: rgba(0,0,0,0.6);
 }
 
 .footerContainer {

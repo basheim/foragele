@@ -86,7 +86,7 @@ const GamePage = ({ minutes, guesses, finished, correctId, possibleAnswers }: Ga
         </div>
       </div>
       <div className={styles.fullScreen}>
-        <button className={`${styles.button} no-select`} onClick={() => setOpenHintModal(true)}>hints</button>
+        <button className={`${styles.button} no-select`} onClick={() => setOpenHintModal(true)}>Hints</button>
       </div>
       <Modal modalOpen={openHintModal} setClose={() => setOpenHintModal(false)} title="Hints" items={hints.length === 0 ? ["No hints are visible on first guess."] : hints}></Modal>
     </div>

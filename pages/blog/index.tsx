@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import Script from 'next/script';
+import { useEffect, useState } from 'react';
 import Footer from '../../components/layout/footer';
 import Hor from '../../components/layout/hor';
 import RowItem from '../../components/layout/row-item';
@@ -17,16 +18,40 @@ export interface BlogHomeProps {
 
 const BlogHome = ({ previews }: BlogHomeProps) => {
 
-  const PREVIEW_LIMIT = 8;
+  const SIDEBAR_LIMIT = 3;
+  const MAIN_SEARCH_LIMIT = 5;
+  const [filter, setFilter] = useState<string>("");
 
-  const getPreviews = () => {
-    const limitedPreviews = previews.sort((a,b) => b.createdDate.getTime() - a.createdDate.getTime()).slice(0, PREVIEW_LIMIT);
+  const advancedFiltering = (title: string, description: string) => {
+    const lowerCaseFilterComponents = filter.toLowerCase().split(' ');
+    for (const comp of lowerCaseFilterComponents) {
+      if (!title.toLowerCase().includes(comp.toLowerCase()) && !description.toLowerCase().includes(comp.toLowerCase())) {
+        return false;
+      }
+    }
+    return true;
+  };
+
+  const getPreviews = (useFilter?: boolean, limit?: number) => {
+    const sortedPreviews = previews.sort((a,b) => (new Date(b.createdDate)).getTime() - (new Date(a.createdDate)).getTime());
     const htmlList = [];
-    for (const preview of limitedPreviews) {
+    for (const preview of sortedPreviews) {
+      if (useFilter && !advancedFiltering(preview.title, preview.description)) {
+        continue;
+      }
+      if (limit !== undefined && htmlList.length >= limit) {
+        break;
+      }
       htmlList.push(<RowItem key={preview.id} title={preview.title} miniText={preview.description} urlPath={`/blog/${preview.id}`}/>)
     }
     return htmlList;
   };
+
+  const [previewList, setPreviewList] = useState<JSX.Element[]>(getPreviews(true, MAIN_SEARCH_LIMIT));
+
+  useEffect(() => {
+    setPreviewList(getPreviews(true, MAIN_SEARCH_LIMIT));
+  }, [filter]);
 
   return (
     <div className={styles.container}>
@@ -46,10 +71,15 @@ const BlogHome = ({ previews }: BlogHomeProps) => {
       <main className={styles.main}>
         <Hor>
           <Sidebar backgroundColor="lightgrey">
-            {getPreviews()}
+            <h2 className={styles.sideTitle}>Recent Articles</h2>
+            {getPreviews(undefined, SIDEBAR_LIMIT)}
           </Sidebar>
           <Vert fullScreen>
-            <TextItem title="Blog Home" body="No blog posts for now, but will contain the newest blog posts in the future."/>
+            <div className={styles.searchContainer}>
+              <h2>Search Articles:</h2>
+              <input className={`${styles.filter} no-select`} type="text" value={filter} onChange={(e) => setFilter(e.currentTarget.value)} placeholder="Search..." />
+              {previewList}
+            </div>
           </Vert>
         </Hor>
         <Footer/>
