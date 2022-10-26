@@ -13,7 +13,7 @@
 .main {
   margin: 0 8rem;
   min-height: 100vh;
-  max-width: 1000px;
+  width: 1000px;
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -37,6 +37,10 @@
 .button:hover {
   scale: 1.1;
   box-shadow: -1px 0 8px black;
+}
+
+.button:active {
+  scale: 1;
 }
 
 .buttonContainer {
@@ -70,6 +74,10 @@
 
 .searchContainer {
   padding: 1rem;
+}
+
+.spacing1 {
+  height: 10px;
 }
 
 @media (max-width: 800px) {

@@ -5,7 +5,6 @@ import Footer from '../components/layout/footer';
 import Hor from '../components/layout/hor';
 import RowItem from '../components/layout/row-item';
 import Sidebar from '../components/layout/sidebar';
-import TextItem from '../components/layout/text-item';
 import Vert from '../components/layout/vert';
 import TopBar from '../components/navigation/top-bar';
 import styles from '../styles/Home.module.css';
@@ -35,7 +34,7 @@ const About = () => {
             </div>
             <h4 className={styles.aboutInfo}>Full Stack Software Engineer</h4>
             <h5 className={styles.aboutInfo}>6 Years Experience</h5>
-            <RowItem title='Download Resume' urlPath='/resume.pdf'/>
+            <div className={styles.spacing1}></div>
           </Sidebar>
           <Vert fullScreen>
             <ChildItem>
@@ -65,6 +64,7 @@ const About = () => {
                 <li>Firebase</li>
               </ul>
             </ChildItem>
+            <RowItem title='Download Resume' centerText urlPath='/resume.pdf'/>
           </Vert>
         </Hor>
       </main>

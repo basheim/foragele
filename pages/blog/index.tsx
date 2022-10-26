@@ -5,7 +5,6 @@ import Footer from '../../components/layout/footer';
 import Hor from '../../components/layout/hor';
 import RowItem from '../../components/layout/row-item';
 import Sidebar from '../../components/layout/sidebar';
-import TextItem from '../../components/layout/text-item';
 import Vert from '../../components/layout/vert';
 import TopBar from '../../components/navigation/top-bar';
 import { PreviewData } from '../../lib/interfaces';
@@ -70,8 +69,8 @@ const BlogHome = ({ previews }: BlogHomeProps) => {
       <TopBar/>
       <main className={styles.main}>
         <Hor>
-          <Sidebar backgroundColor="lightgrey">
-            <h2 className={styles.sideTitle}>Recent Articles</h2>
+          <Sidebar>
+            <h3 style={{textAlign: 'center'}}>Recent Articles</h3> 
             {getPreviews(undefined, SIDEBAR_LIMIT)}
           </Sidebar>
           <Vert fullScreen>

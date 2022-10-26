@@ -9,11 +9,12 @@ export interface RowItemProps {
   title?: string;
   subTitle?: string;
   body?: string;
+  centerText?: boolean;
   urlPath?: string;
   miniText?: string;
 }
 
-const RowItem = ({ imageUrl, title, subTitle, backgroundColor, body, textColor, urlPath, miniText }: RowItemProps) => {
+const RowItem = ({ imageUrl, title, subTitle, backgroundColor, body, textColor, urlPath, miniText, centerText }: RowItemProps) => {
   const getRowItem = () => {
     return (
       <div 
@@ -21,7 +22,8 @@ const RowItem = ({ imageUrl, title, subTitle, backgroundColor, body, textColor, 
         style={{ 
           backgroundImage: imageUrl && `url("${imageUrl}")`,
           backgroundColor: backgroundColor && backgroundColor,
-          color: textColor && textColor
+          color: textColor && textColor,
+          textAlign: centerText ? "center" : undefined
         }}
       >
         {title && <h3 className={styles.title}>{title}</h3>}
