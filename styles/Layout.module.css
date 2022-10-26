@@ -27,7 +27,7 @@
 }
 
 .rowItemContainer {
-  margin: .5rem 0;
+  margin: 15px 0;
   overflow: hidden;
   width: 100%;
   height: auto;
@@ -35,8 +35,8 @@
   overflow-wrap: break-word; 
   background-repeat: no-repeat;
   background-size: cover;
-  border-radius: 15px;
-  box-shadow: -1px 0 8px lightgrey; 
+  border-radius: 10px;
+  box-shadow: 0 3px 10px black; 
 }
 
 .textItemContainer {
@@ -81,7 +81,7 @@
 
 .link:hover {
   scale: 1.03;
-  box-shadow: -1px 0 8px black;
+  box-shadow: 0 3px 10px darkgrey; 
 }
 
 .link:active {
@@ -106,7 +106,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-color: grey;
+  background-color: lightgrey;
   opacity: 0.4;
   width: 100%;
   font-size: x-small;
