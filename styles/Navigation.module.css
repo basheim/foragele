@@ -2,7 +2,7 @@
   position: sticky;
   width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   padding: 0 0.5rem;
   visibility: visible;
   margin-bottom: 1rem;
@@ -10,23 +10,22 @@
 }
 
 .itemContainer {
-
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .topBarItem {
   width: auto;
   height: auto;
   text-align: center;
-  border-left: 1px solid rgba(211, 211, 211, 0.7);
-  border-right: 1px solid rgba(211, 211, 211, 0.7);
-  background-color: rgba(128, 128, 128, 0.3);
   padding: 0 0.75rem 0 0.75rem;
   cursor: pointer;
   display: inherit;
 }
 
 .topBarItem:hover {
-  color: white;
+  color: grey;
 }
 
 .mobileDropdownXContainer {
@@ -88,10 +87,11 @@
 }
 
 .textContainer {
-  width: auto;
+  width: 300px;
   height: auto;
   text-align: center;
-  padding: 0 1.5rem 0 0.75rem;
+  margin-left: 10px;
+  margin-right: 10px;
   cursor: pointer;
   display: inherit;
 }

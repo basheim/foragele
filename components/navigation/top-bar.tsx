@@ -11,12 +11,7 @@ const TopBar = ({ }: TopBarProps) => {
 
   const getNavItems = () => {
     const navItems = [
-      <MobileItem key='mobile-icon'></MobileItem>,
-      <Link href="/" key='title'>
-        <div className={styles.textContainer}>
-          <h3>Programming with Bean</h3>
-        </div>
-      </Link>
+      
     ];
     for (const item of navOptions) {
       if (item.path !== "/") {
@@ -30,7 +25,15 @@ const TopBar = ({ }: TopBarProps) => {
 
   return (
     <div className={styles.barContainer}>
+      <MobileItem key='mobile-icon'></MobileItem>,
+      <Link href="/" key='title'>
+        <div className={styles.textContainer}>
+          <h3>Programming with Bean</h3>
+        </div>
+      </Link>
+      <div className={styles.itemContainer}>
         {getNavItems()}
+      </div>
     </div>
   )
 }
