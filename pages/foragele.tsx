@@ -4,6 +4,8 @@ import { useEffect, useState } from 'react';
 import EndPage from '../components/game/end-page';
 import GamePage from '../components/game/game-page';
 import StartPage from '../components/game/start-page';
+import Footer from '../components/layout/footer';
+import TopBar from '../components/navigation/top-bar';
 import { GameState, LossReason } from '../lib/enums';
 import { Answer, GameInfo } from '../lib/interfaces';
 import styles from '../styles/Home.module.css';
@@ -90,9 +92,11 @@ const Foragele = ({ answers }: ForageleProps) => {
         <link rel="shortcut icon" href="/foragele/favicon.ico" />
         <link rel="manifest" href="/foragele/site.webmanifest" />
       </Head>
+      <TopBar/>
       <main className={styles.main}>
         {getGamePage()}
       </main>
+      <Footer/>
     </div>
   )
 }

@@ -52,10 +52,10 @@ const EndPage = ({ gameInfo }: EndPageProps) => {
         <Link href="/">
           <button className={`${styles.button} no-select`}>Back to home</button>
         </Link>
-        <p>
-          Information Source: 
+        <div className={styles.informationSourceDiv}>
+          <span className={styles.informationSourceSpan}>Information Source:</span>
           <a href="https://www.amazon.com/All-That-Rain-Promises-More/dp/0898153883">All That the Rain Promises, and More...</a>
-        </p>
+        </div>
       </div>
     </div>
   )

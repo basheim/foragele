@@ -29,7 +29,6 @@ const Home = () => {
       </Head>
       <TopBar/>
       <main className={styles.main}>
-        <Bannor backgroundColor="#a3bce3" title="Play Foragele Here!" subTitle="Learn about wild plants and fungi!" urlPath="/foragele"/>
         <Hor>
           <Sidebar backgroundColor="lightgrey">
             <RowItem title="About Me" subTitle="Learn more about the author." urlPath='/about'/>

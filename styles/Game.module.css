@@ -41,6 +41,19 @@
   background-color:  rgba(211, 211, 211, 1);
 }
 
+.informationSourceDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+
+.informationSourceSpan {
+  padding-right: 0.5rem;
+}
+
+
 .fullScreen {
   display: flex;
   flex-direction: column;
