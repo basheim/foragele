@@ -106,12 +106,22 @@
   cursor: pointer;
 }
 
-.mobileItem:hover {
-  background-color: grey;
-}
-
 
 @media (max-width: 800px) {
+
+  .barContainer {
+    position: sticky;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 0.5rem;
+    visibility: visible;
+    margin-bottom: 1rem;
+    box-shadow: none;
+    background-color: white;
+    top: 0;
+  }
+
   .mobileDropdownContainerClose {
     display: flex;
     font-size: 1.3rem;
