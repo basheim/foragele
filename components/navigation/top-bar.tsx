@@ -25,7 +25,7 @@ const TopBar = ({ }: TopBarProps) => {
 
   return (
     <div className={styles.barContainer}>
-      <MobileItem key='mobile-icon'></MobileItem>,
+      <MobileItem key='mobile-icon'></MobileItem>
       <Link href="/" key='title'>
         <div className={styles.textContainer}>
           <h3>Programming with Bean</h3>

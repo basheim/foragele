@@ -51,7 +51,7 @@
 }
 
 .mobileDropdownItem1:hover, .mobileDropdownItem2:hover {
-  color: white;
+  color: grey;
 }
 
 .mobileDropdownContainerClose {
@@ -63,7 +63,7 @@
   z-index: 1000;
   transition: top .4s;
   display: none;
-  background: lightgrey;
+  background: white;
 }
 
 
@@ -76,7 +76,7 @@
   z-index: 1000;
   transition: top .4s;
   display: none;
-  background: lightgrey;
+  background: white;
 }
 
 .mobileListContainer {
