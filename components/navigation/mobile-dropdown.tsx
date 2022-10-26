@@ -22,7 +22,7 @@ const MobileDropdown = ({ open, setClose }: MobileDropdownProps) => {
     let light = true;
     const navItems = [
       <div key='mobile-x' className={styles.mobileDropdownXContainer}>
-        <div className={styles.mobileDropdownItem2} onClick={setClose}>
+        <div className={`${styles.mobileDropdownItem2} no-select`} onClick={setClose}>
           <img src="/x.svg" />
         </div>
       </div>
