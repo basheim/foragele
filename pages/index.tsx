@@ -1,6 +1,5 @@
 import Head from 'next/head';
 import Script from 'next/script';
-import Bannor from '../components/layout/bannor';
 import Footer from '../components/layout/footer';
 import Hor from '../components/layout/hor';
 import RowItem from '../components/layout/row-item';
@@ -30,15 +29,12 @@ const Home = () => {
       <TopBar/>
       <main className={styles.main}>
         <Hor>
-          <Sidebar backgroundColor="lightgrey">
-            <RowItem title="About Me" subTitle="Learn more about the author." urlPath='/about'/>
-          </Sidebar>
           <Vert fullScreen>
             <TextItem title="The Beginning" body="This is just the beginning of the wedsite. More games, blog posts, and general programming content will be added soon."/>
           </Vert>
         </Hor>
-        <Footer/>
       </main>
+      <Footer/>
     </div>
   )
 }

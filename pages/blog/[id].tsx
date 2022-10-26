@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import Script from 'next/script';
+import React from 'react';
 import Footer from '../../components/layout/footer';
 import Hor from '../../components/layout/hor';
 import HtmlItem from '../../components/layout/html-item';
@@ -46,7 +47,9 @@ const Post = ({post, previews} : PostProps) => {
   };
 
   return (
-    <div className={styles.container}>
+    <React.Fragment>
+      <TopBar/>
+      <div className={styles.container}>
       <Script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9555454070901210"></Script>
       <Head>
         <title>{post.title}</title>
@@ -59,10 +62,10 @@ const Post = ({post, previews} : PostProps) => {
         <link rel="shortcut icon" href="/main/favicon.ico" />
         <link rel="manifest" href="/main/site.webmanifest" />
       </Head>
-      <TopBar/>
       <main className={styles.main}>
         <Hor>
-          <Sidebar backgroundColor="lightgrey">
+          <Sidebar>
+            <h3 style={{textAlign: 'center'}}>Similar Articles</h3> 
            {getPreview()}
           </Sidebar>
           <Vert fullScreen justify='space-between'>
@@ -75,9 +78,10 @@ const Post = ({post, previews} : PostProps) => {
             }
           </Vert>
         </Hor>
-        <Footer/>
       </main>
+      <Footer/>
     </div>
+    </React.Fragment>
   )
 }
 

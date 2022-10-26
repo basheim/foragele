@@ -2,11 +2,15 @@
   position: sticky;
   width: 100%;
   display: flex;
-  justify-content: left;
+  justify-content: center;
   padding: 0 0.5rem;
-  border-bottom: 1px solid rgba(211, 211, 211, 0.7);
-  background-color:  rgba(211, 211, 211, 0.6);
   visibility: visible;
+  margin-bottom: 1rem;
+  box-shadow: 0 1px 9px black;
+}
+
+.itemContainer {
+
 }
 
 .topBarItem {

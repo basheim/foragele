@@ -19,14 +19,27 @@
 
 .sidebarContainer {
   align-self: stretch;
-  max-width: 20%;
-  min-width: 20%;
+  max-width: 200px;
   overflow: hidden;
-  padding: 1rem;
+  padding: 20px;
+  margin-right: 20px;
   overflow-wrap: break-word; 
 }
 
 .rowItemContainer {
+  margin: .5rem 0;
+  overflow: hidden;
+  width: 100%;
+  height: auto;
+  padding: 1rem;
+  overflow-wrap: break-word; 
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 15px;
+  box-shadow: -1px 0 8px lightgrey; 
+}
+
+.textItemContainer {
   margin: .5rem 0;
   overflow: hidden;
   width: 100%;
@@ -62,11 +75,13 @@
 
 .link {
   cursor: pointer;
-  border: 1px solid rgba(0,0,0,0);
+  background-color: white;
+  transition: scale .2s, box-shadow .2s;
 }
 
 .link:hover {
-  border: 1px solid black;
+  scale: 1.1;
+  box-shadow: -1px 0 8px black;
 }
 
 .bannorLink {

@@ -29,7 +29,7 @@ const About = () => {
       <TopBar/>
       <main className={styles.main}>
         <Hor>
-          <Sidebar backgroundColor='lightgrey'>
+          <Sidebar>
             <div className={styles.imageContainer}>
               <img src="/profile.jpg"/>
             </div>
@@ -67,8 +67,8 @@ const About = () => {
             </ChildItem>
           </Vert>
         </Hor>
-        <Footer/>
       </main>
+      <Footer/>
     </div>
   )
 }

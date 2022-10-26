@@ -82,8 +82,8 @@ const BlogHome = ({ previews }: BlogHomeProps) => {
             </div>
           </Vert>
         </Hor>
-        <Footer/>
       </main>
+      <Footer/>
     </div>
   )
 }

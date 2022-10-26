@@ -14,7 +14,7 @@ export interface TextItemProps {
 const TextItem = ({ imageUrl, title, subTitle, backgroundColor, body, textColor }: TextItemProps) => {
   return (
     <div 
-      className={styles.rowItemContainer} 
+      className={styles.textItemContainer} 
       style={{ 
         backgroundColor: backgroundColor && backgroundColor,
         color: textColor && textColor
