@@ -18,7 +18,7 @@ const RowItem = ({ imageUrl, title, subTitle, backgroundColor, body, textColor, 
   const getRowItem = () => {
     return (
       <div 
-        className={urlPath ? styles.rowItemContainer + " " + styles.link : styles.rowItemContainer} 
+        className={urlPath ? styles.rowItemContainer + " " + styles.link + " no-select" : styles.rowItemContainer} 
         style={{ 
           backgroundImage: imageUrl && `url("${imageUrl}")`,
           backgroundColor: backgroundColor && backgroundColor,

@@ -11,7 +11,7 @@ const MobileItem = ({ }: MobileItemProps) => {
   return (
     <React.Fragment>
       <MobileDropdown open={open} setClose={() => setOpen(false)}></MobileDropdown>
-      <div className={styles.mobileItem} onClick={() => setOpen(true)}>
+      <div className={`${styles.mobileItem} no-select`} onClick={() => setOpen(true)}>
         <img src="/menu.svg" />
       </div>
     </React.Fragment>

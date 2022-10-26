@@ -28,7 +28,7 @@ const Post = ({post, previews} : PostProps) => {
     return (
       <div className={styles.buttonContainer}>
         <Link href={href}>
-          <button className={styles.button}>{buttonText}</button>
+          <button className={`${styles.button} no-select`}>{buttonText}</button>
         </Link>
       </div>
     );

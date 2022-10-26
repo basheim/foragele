@@ -65,6 +65,7 @@
   z-index: 1000;
   transition: top .4s;
   display: none;
+  visibility: hidden;
   background: white;
 }
 
