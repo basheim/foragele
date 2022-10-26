@@ -2,13 +2,11 @@ import Head from 'next/head';
 import Link from 'next/link';
 import Script from 'next/script';
 import React from 'react';
-import Footer from '../../components/layout/footer';
 import Hor from '../../components/layout/hor';
 import HtmlItem from '../../components/layout/html-item';
 import RowItem from '../../components/layout/row-item';
 import Sidebar from '../../components/layout/sidebar';
 import Vert from '../../components/layout/vert';
-import TopBar from '../../components/navigation/top-bar';
 import { PostData, PostPageData, PreviewData } from '../../lib/interfaces';
 import styles from '../../styles/Home.module.css';
 
@@ -48,7 +46,6 @@ const Post = ({post, previews} : PostProps) => {
 
   return (
     <React.Fragment>
-      <TopBar/>
       <div className={styles.container}>
       <Script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9555454070901210"></Script>
       <Head>
@@ -79,7 +76,6 @@ const Post = ({post, previews} : PostProps) => {
           </Vert>
         </Hor>
       </main>
-      <Footer/>
     </div>
     </React.Fragment>
   )

@@ -7,6 +7,8 @@
   visibility: visible;
   margin-bottom: 1rem;
   box-shadow: 0 1px 9px black;
+  background-color: white;
+  top: 0;
 }
 
 .itemContainer {

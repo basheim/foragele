@@ -1,12 +1,8 @@
 import Head from 'next/head';
 import Script from 'next/script';
-import Footer from '../components/layout/footer';
 import Hor from '../components/layout/hor';
-import RowItem from '../components/layout/row-item';
-import Sidebar from '../components/layout/sidebar';
 import TextItem from '../components/layout/text-item';
 import Vert from '../components/layout/vert';
-import TopBar from '../components/navigation/top-bar';
 import styles from '../styles/Home.module.css';
 
 
@@ -26,7 +22,6 @@ const Home = () => {
         <link rel="shortcut icon" href="/main/favicon.ico" />
         <link rel="manifest" href="/main/site.webmanifest" />
       </Head>
-      <TopBar/>
       <main className={styles.main}>
         <Hor>
           <Vert fullScreen>
@@ -34,7 +29,6 @@ const Home = () => {
           </Vert>
         </Hor>
       </main>
-      <Footer/>
     </div>
   )
 }

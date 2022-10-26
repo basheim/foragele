@@ -1,12 +1,10 @@
 import Head from 'next/head';
 import Script from 'next/script';
 import { useEffect, useState } from 'react';
-import Footer from '../../components/layout/footer';
 import Hor from '../../components/layout/hor';
 import RowItem from '../../components/layout/row-item';
 import Sidebar from '../../components/layout/sidebar';
 import Vert from '../../components/layout/vert';
-import TopBar from '../../components/navigation/top-bar';
 import { PreviewData } from '../../lib/interfaces';
 import styles from '../../styles/Home.module.css';
 
@@ -66,7 +64,6 @@ const BlogHome = ({ previews }: BlogHomeProps) => {
         <link rel="shortcut icon" href="/main/favicon.ico" />
         <link rel="manifest" href="/main/site.webmanifest" />
       </Head>
-      <TopBar/>
       <main className={styles.main}>
         <Hor>
           <Sidebar>
@@ -82,7 +79,6 @@ const BlogHome = ({ previews }: BlogHomeProps) => {
           </Vert>
         </Hor>
       </main>
-      <Footer/>
     </div>
   )
 }
