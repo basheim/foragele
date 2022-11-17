@@ -74,8 +74,8 @@ const BlogHome = ({ previews }: BlogHomeProps) => {
             <div className={styles.searchContainer}>
               <h2>Search Articles:</h2>
               <input className={`${styles.filter} no-select`} type="text" value={filter} onChange={(e) => setFilter(e.currentTarget.value)} placeholder="Search..." />
-              {previewList}
             </div>
+            {previewList}
           </Vert>
         </Hor>
       </main>
