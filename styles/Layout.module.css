@@ -120,5 +120,9 @@
   .horContainer {
     flex-wrap: wrap;
   }
+
+  .rowItemContainer {
+    margin: 15px 0px;
+  }
 }
 
