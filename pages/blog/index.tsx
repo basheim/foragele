@@ -41,6 +41,9 @@ const BlogHome = ({ previews }: BlogHomeProps) => {
       }
       htmlList.push(<RowItem key={preview.id} title={preview.title} miniText={preview.description} urlPath={`/blog/${preview.id}`}/>)
     }
+    if (htmlList.length == 0) {
+      htmlList.push(<RowItem key="No Items Available" title="Search did not find any relevant articles. Please update your search."/>)
+    }
     return htmlList;
   };
 

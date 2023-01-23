@@ -77,6 +77,10 @@
   padding: 1rem;
 }
 
+.forceWidth {
+  min-width: 100%;
+}
+
 .spacing1 {
   height: 10px;
 }

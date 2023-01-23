@@ -6,6 +6,7 @@ export interface VertProps {
   align?: string;
   justify?: string;
   fullScreen?: boolean;
+  forceWidth?: boolean;
 }
 
 const Vert = ({ children, align, justify, fullScreen }: VertProps) => {

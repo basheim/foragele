@@ -36,7 +36,7 @@ const About = () => {
           <Vert fullScreen>
             <ChildItem>
               <h2>Brandon Asheim</h2>
-              <p>Quality driven full stack developer with 5+ years of experience building scalable web applications and internal tools.</p>
+              <p>Quality driven full-stack developer with 5+ years of experience building scalable web applications and internal tools.</p>
               <h4>Work Experience</h4>
               <ul>
                 <li>Software Engineer - Bluecrew Inc.</li>
@@ -45,7 +45,7 @@ const About = () => {
                 <li>Software Test Engineer - Qualtrics Inc.</li>
                 <li>Product Engineer - Micron Inc.</li>
               </ul>
-              <h4>Acedemics</h4>
+              <h4>Education</h4>
               <ul>
                 <li>BS in Electrical Engineering from University of Washington</li>
               </ul>
