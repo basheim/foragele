@@ -41,7 +41,7 @@ const About = () => {
               <ul>
                 <li>Software Engineer - Bluecrew Inc.</li>
                 <li>Software Engineer - Qualtrics Inc.</li>
-                <li>Software Development in Test - Qualtrics Inc.</li>
+                <li>Software Developer in Test - Qualtrics Inc.</li>
                 <li>Software Test Engineer - Qualtrics Inc.</li>
                 <li>Product Engineer - Micron Inc.</li>
               </ul>
