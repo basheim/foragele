@@ -112,6 +112,29 @@
   font-size: x-small;
 }
 
+.smallBox {
+  cursor: pointer;
+  display: inline-block;
+  padding: 5px 10px;
+  margin: 5px;
+  border-radius: 10px;
+  box-shadow: 0 1px 5px black;
+  transition: scale .2s, box-shadow .2s;
+}
+
+.smallBox:hover {
+  scale: 1.03;
+  box-shadow: 0 1px 5px darkgrey; 
+}
+
+.boxContainer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  width: 100%;
+  padding: 10px;
+}
+
 @media (max-width: 800px) {
   .sidebarContainer {
     display: none;

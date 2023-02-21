@@ -24,7 +24,7 @@
 
 .modal {
   height: auto;
-  width: 50%;
+  width: auto;
   background-color: white;
   border-radius: 1rem;
   padding: 2rem;
@@ -58,7 +58,7 @@
 
 .title {
   padding: 0;
-  margin: 0;
+  margin: 0 0.5rem;
   margin-bottom: 1rem;
   text-align: center;
 }
@@ -69,6 +69,7 @@
 }
 
 .content {
+  padding: 0.5rem;
   margin-bottom: 1rem;
 }
 

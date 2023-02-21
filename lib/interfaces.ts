@@ -46,8 +46,18 @@ export interface PostData {
   next: string;
 }
 
-
 export interface PostPageData {
   post: PostData;
   previews: PreviewData[];
+}
+
+export interface ModalData {
+  text: string
+  modalTitle: string
+  modalItems: string[]
+}
+
+export interface ModalLinkData {
+  text: string
+  link: string
 }
