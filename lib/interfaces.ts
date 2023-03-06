@@ -49,6 +49,7 @@ export interface PostData {
 export interface PostPageData {
   post: PostData;
   previews: PreviewData[];
+  data: string;
 }
 
 export interface ModalData {

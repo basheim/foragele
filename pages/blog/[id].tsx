@@ -13,9 +13,10 @@ import styles from '../../styles/Home.module.css';
 export interface PostProps {
   post: PostData;
   previews: PreviewData[];
+  data: string;
 }
 
-const Post = ({post, previews} : PostProps) => {
+const Post = ({post, previews, data} : PostProps) => {
   const getPreview = () => {
     const html = [];
     for (let preview of previews) {
@@ -66,7 +67,7 @@ const Post = ({post, previews} : PostProps) => {
            {getPreview()}
           </Sidebar>
           <Vert fullScreen justify='space-between'>
-            <HtmlItem html={post.content}/>
+            <HtmlItem html={data}/>
             {(post.next || post.prev) && 
               <Hor align='center' justify={getJustifyContent()}>
                 {post.prev && getButton(post.prev, "<- Prev")}
@@ -90,7 +91,7 @@ export interface Params {
 export async function getStaticProps({ params }: Params) {
   const res = await fetch(`https://backend.programmingbean.com/api/v1/posts/${params.id}`);
   const postPage = await res.json() as PostPageData;
-  return { props: { post: postPage.post, previews: postPage.previews } };
+  return { props: { post: postPage.post, previews: postPage.previews, data: postPage.data } };
 }
 
 export async function getStaticPaths() {
