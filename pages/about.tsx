@@ -1,7 +1,6 @@
 import Head from 'next/head';
 import Script from 'next/script';
 import BoxContainer from '../components/layout/box/box-container';
-import ChildItem from '../components/layout/child-item';
 import Hor from '../components/layout/hor';
 import Sidebar from '../components/layout/sidebar';
 import Vert from '../components/layout/vert';
@@ -145,18 +144,16 @@ const About = () => {
             </div>
           </Sidebar>
           <Vert fullScreen>
-            <ChildItem>
-              <h2>Brandon Asheim</h2>
-              <p>Quality driven full-stack developer with 5+ years of experience building scalable web applications and internal tools.</p>
-              <h4>Work Experience</h4>
-              <BoxContainer modalSelectors={experience}/>
-              <h4>Education</h4>
-              <BoxContainer modalSelectors={education}/>
-              <h4>Skills</h4>
-              <BoxContainer modalSelectors={skills}/>
-              <h4>Links</h4>
-              <BoxContainer modalLinkSelectors={links}/>
-            </ChildItem>
+            <h2>Brandon Asheim</h2>
+            <p>Quality driven full-stack developer with 5+ years of experience building scalable web applications and internal tools.</p>
+            <h4>Work Experience</h4>
+            <BoxContainer modalSelectors={experience}/>
+            <h4>Education</h4>
+            <BoxContainer modalSelectors={education}/>
+            <h4>Skills</h4>
+            <BoxContainer modalSelectors={skills}/>
+            <h4>Links</h4>
+            <BoxContainer modalLinkSelectors={links}/>
           </Vert>
         </Hor>
       </main>

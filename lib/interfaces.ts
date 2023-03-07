@@ -53,12 +53,19 @@ export interface PostPageData {
 }
 
 export interface ModalData {
-  text: string
-  modalTitle: string
-  modalItems: string[]
+  text: string;
+  modalTitle: string;
+  modalItems: string[];
 }
 
 export interface ModalLinkData {
-  text: string
-  link: string
+  text: string;
+  link: string;
+}
+
+export interface ProjectData {
+  name: string;
+  progress: number;
+  state: string;
+  link: string;
 }

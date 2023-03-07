@@ -14,6 +14,10 @@ export const navOptions: Nav[] = [
         path: '/blog'
     },
     {
+        text: 'Projects',
+        path: '/projects'
+    },
+    {
         text: 'About Me',
         path: '/about'
     }

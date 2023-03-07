@@ -10,9 +10,7 @@ export interface TopBarProps {}
 const TopBar = ({ }: TopBarProps) => {
 
   const getNavItems = () => {
-    const navItems = [
-      
-    ];
+    const navItems = [];
     for (const item of navOptions) {
       if (item.path !== "/") {
         navItems.push(
