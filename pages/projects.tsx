@@ -15,7 +15,7 @@ const Projects = ({projects}: ProjectsProps) => {
   const getProjects = () => {
     const elements = [];
     for (let project of projects) {
-      elements.push(<ProjectElement project={project}/>);
+      elements.push(<ProjectElement project={project} key={project.name}/>);
     };
     return elements;
   };
