@@ -3,6 +3,9 @@ import { LossReason } from '../../lib/enums';
 import { getStringTime } from '../../lib/helpers';
 import { GameInfo } from '../../lib/interfaces';
 import styles from '../../styles/Game.module.css';
+import homeStyles from '../../styles/Home.module.css';
+import Hor from '../layout/hor';
+import Vert from '../layout/vert';
 
 export interface EndPageProps {
   gameInfo: GameInfo;
@@ -23,12 +26,13 @@ const EndPage = ({ gameInfo }: EndPageProps) => {
   }
 
   return (
-    <div className={styles.gameContainer}>
+    <Vert fullScreen>
       <h1 className={styles.title}>{getTitleText()}</h1>
       <div className={styles.fullScreen}>
         <img src={gameInfo.correctAnswer.imageUrl}></img>
       </div>
-      <div className={styles.fullScreenRow}>
+      <div className={homeStyles.spacing2}></div>
+      <Hor>
         <div className={styles.halfScreenBorder}>
           <h2>Plant Information</h2>
           <ul>
@@ -47,17 +51,16 @@ const EndPage = ({ gameInfo }: EndPageProps) => {
             <li>{`Guesses Remaining: ${gameInfo.guessesRemaining}`}</li>
           </ul>
         </div>
+      </Hor>
+      <div className={homeStyles.spacing1}></div>
+      <Link href="/">
+        <button className={`${homeStyles.button} no-select`}>Back to home</button>
+      </Link>
+      <div className={styles.informationSourceDiv}>
+        <span className={styles.informationSourceSpan}>Information Source:</span>
+        <a href="https://www.amazon.com/All-That-Rain-Promises-More/dp/0898153883">All That the Rain Promises, and More...</a>
       </div>
-      <div className={styles.fullScreen}>
-        <Link href="/">
-          <button className={`${styles.button} no-select`}>Back to home</button>
-        </Link>
-        <div className={styles.informationSourceDiv}>
-          <span className={styles.informationSourceSpan}>Information Source:</span>
-          <a href="https://www.amazon.com/All-That-Rain-Promises-More/dp/0898153883">All That the Rain Promises, and More...</a>
-        </div>
-      </div>
-    </div>
+    </Vert>
   )
 }
 

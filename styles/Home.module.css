@@ -87,6 +87,11 @@
   width: 100vw;
 }
 
+.spacing2 {
+  height: 30px;
+  width: 100vw;
+}
+
 @media (max-width: 800px) {
   .container {
     padding: 0;
@@ -99,6 +104,15 @@
 
   .buttonContainer {
     min-width: 50%;
+  }
+
+  .spacing2 {
+    height: 0px;
+  }
+
+  .button:hover {
+    scale: 1.05;
+    box-shadow: -1px 0 8px black;
   }
 }
 

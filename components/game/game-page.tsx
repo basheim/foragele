@@ -1,4 +1,5 @@
 import styles from '../../styles/Game.module.css';
+import homeStyles from '../../styles/Home.module.css';
 import { useState, useEffect } from 'react';
 import Answers from './answers';
 import { Answer } from '../../lib/interfaces';
@@ -6,6 +7,8 @@ import { LossReason } from '../../lib/enums';
 import Guesses from './guesses';
 import Timer from '../general/timer';
 import Modal from '../general/modal';
+import Vert from '../layout/vert';
+import Hor from '../layout/hor';
 
 
 export interface GamePageProps {
@@ -72,24 +75,24 @@ const GamePage = ({ minutes, guesses, finished, correctId, possibleAnswers }: Ga
   }, [guessesRemaining, update, timeRemaining, correctGuess]);
 
   return (
-    <div className={styles.gameContainer}>
-      <div className={styles.timerContainer}>
-        <Guesses guessCount={guessesRemaining}></Guesses>
-        <Timer addedMinutes={minutes} update={updateTimeRemaining}></Timer>
-      </div>
-      <div className={styles.dataContainer}>
+    <Vert fullScreen>
+      <Hor justify='space-between'>
+        <Guesses guessCount={guessesRemaining}/>
+        <Timer addedMinutes={minutes} update={updateTimeRemaining}/>
+      </Hor>
+      <div className={homeStyles.spacing2}/>
+      <Hor>
         <div className={styles.halfScreen}>
           <img src={getImageUrl()}></img>
         </div>
         <div className={styles.halfScreen}>
-          <Answers possibleAnswers={possibleAnswers} correctId={correctId} incorrectAnswer={() => setUpdate(true)} correctAnswer={() => setCorrectGuess(true)}></Answers>
+          <Answers possibleAnswers={possibleAnswers} correctId={correctId} incorrectAnswer={() => setUpdate(true)} correctAnswer={() => setCorrectGuess(true)}/>
         </div>
-      </div>
-      <div className={styles.fullScreen}>
-        <button className={`${styles.button} no-select`} onClick={() => setOpenHintModal(true)}>Hints</button>
-      </div>
-      <Modal modalOpen={openHintModal} setClose={() => setOpenHintModal(false)} title="Hints" items={hints.length === 0 ? ["No hints are visible on first guess."] : hints}></Modal>
-    </div>
+      </Hor>
+      <div className={homeStyles.spacing2}/>
+      <button className={`${homeStyles.button} no-select`} onClick={() => setOpenHintModal(true)}>Hints</button>
+      <Modal modalOpen={openHintModal} setClose={() => setOpenHintModal(false)} title="Hints" items={hints.length === 0 ? ["No hints are visible on first guess."] : hints}/>
+    </Vert>
   )
 }
 

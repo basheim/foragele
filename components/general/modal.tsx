@@ -1,5 +1,8 @@
 import React, { useEffect } from 'react';
 import styles from '../../styles/Modal.module.css';
+import homeStyles from '../../styles/Home.module.css';
+import Hor from '../layout/hor';
+import Vert from '../layout/vert';
 
 export interface ModalProps {
   modalOpen: boolean;
@@ -47,18 +50,18 @@ const Modal = ({ modalOpen, title, items, acceptAction, setClose}: ModalProps) =
       {modalOpen && 
         <div className={styles.modalContainer}>
           <div className={styles.modal}>
-            <div className={styles.content}>
+            <Vert>
               <h2 className={styles.title}>{title}</h2>
               {items &&
                 <div className={styles.listContainer}>
                   {getList()}
                 </div>
               }
-            </div>
-            <div className={styles.buttonDiv}>
-              {acceptAction && <button className={`${styles.button} no-select`} onClick={click}>Guess</button>}
-              <button className={`${styles.button} no-select`} onClick={close}>Close</button>
-            </div>
+              <Hor>
+                {acceptAction && <button className={`${homeStyles.button} no-select ${styles.buttonSpacing}`} onClick={click}>Guess</button>}
+                <button className={`${homeStyles.button} no-select ${styles.buttonSpacing}`} onClick={close}>Close</button>
+              </Hor>
+            </Vert>
           </div>
         </div>
       }

@@ -33,27 +33,8 @@
   justify-content: space-between;
 }
 
-.buttonDiv {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  height: auto;
-}
-
-.button {
-  font-size: 1.5rem;
-  padding:.5rem;
-  border-radius: 1.5rem;
-  width: 45%;
-  border: none;
-  margin: 0 .5rem;
-  cursor: pointer;
-  background-color: rgba(211, 211, 211, 0.6);
-  box-shadow: 2px 2px rgba(211, 211, 211, 0.863);
-}
-
-.button:hover {
-  background-color:  rgba(211, 211, 211, 1);
+.buttonSpacing {
+  margin: 20px 60px 0px 60px;
 }
 
 .title {
@@ -76,7 +57,7 @@
 @media (max-width: 800px) {
   .modal {
     width: 90%;
-    padding: 1rem 0.2rem;
+    padding: 2rem 1.5rem;
     font-size: 1.1rem;
   }
 }

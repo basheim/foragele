@@ -1,4 +1,6 @@
 import styles from '../../styles/Game.module.css';
+import homeStyles from '../../styles/Home.module.css';
+import Vert from '../layout/vert';
 
 export interface StartPageProps {
   minutes: number;
@@ -8,7 +10,7 @@ export interface StartPageProps {
 
 const StartPage = ({ startGame, minutes, guesses }: StartPageProps) => {
   return (
-    <div className={styles.gameContainer}>
+    <Vert fullScreen >
       <h1 className={styles.title}>Foragele</h1>
       <h2>Rules!</h2>
       <ul className={styles.table}>
@@ -18,8 +20,8 @@ const StartPage = ({ startGame, minutes, guesses }: StartPageProps) => {
         <li className={styles.tableItem}>{`You have ${guesses} chances to guess correctly.`}</li>
         <li className={styles.tableItem}>Hints will be added on each incorrect guess.</li>
       </ul>
-      <button className={`${styles.button} no-select`} onClick={startGame}>Begin</button>
-    </div>
+      <button className={`${homeStyles.button} no-select`} onClick={startGame}>Begin</button>
+    </Vert>
   )
 }
 

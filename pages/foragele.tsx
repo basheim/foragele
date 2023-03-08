@@ -16,7 +16,7 @@ const Foragele = ({ answers }: ForageleProps) => {
   const [gameState, setGameState] = useState<GameState>(GameState.Start);
   const [gameInfo, setGameInfo] = useState<GameInfo>({} as any);
   const [correctId, setCorrectId] = useState<string>("");
-  const timeLimitMinutes = 4;
+  const timeLimitMinutes = 3;
   const guesses = 4;
 
   const finishGame = (hasWon: boolean, timeRemaining: number, guessesRemaining: number, lossReason: LossReason | undefined) => {
