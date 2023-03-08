@@ -13,7 +13,7 @@ const ProjectElement = ({ project }: ProjectElementProps) => {
     <ChildItem urlPath={project.link}>
       <div className={styles.projectContainer}>
         <div className={styles.titleContainer}>
-          <h2>{project.name}</h2>
+          <h3>{project.name}</h3>
           <p>{project.state}</p>
         </div>
         <div className={styles.progressContainer}>

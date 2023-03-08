@@ -4,16 +4,26 @@ import Hor from '../components/layout/hor';
 import RowItem from '../components/layout/row-item';
 import TextItem from '../components/layout/text-item';
 import Vert from '../components/layout/vert';
-import { PreviewData } from '../lib/interfaces';
+import ProjectElement from '../components/projects/project-element';
+import { PreviewData, ProjectData } from '../lib/interfaces';
 import styles from '../styles/Home.module.css';
 
 export interface HomeProps {
   previews: PreviewData[];
+  projects: ProjectData[];
 }
 
-const Home = ({ previews } : HomeProps) => {
+const Home = ({ previews, projects } : HomeProps) => {
 
   const LIMIT = 4;
+
+  const getProjects = () => {
+    const elements = [];
+    for (let project of projects) {
+      elements.push(<ProjectElement project={project} key={project.name}/>);
+    };
+    return elements;
+  };
 
   const getPreviews = (limit?: number) => {
     const sortedPreviews = previews.sort((a,b) => (new Date(b.createdDate)).getTime() - (new Date(a.createdDate)).getTime());
@@ -47,13 +57,17 @@ const Home = ({ previews } : HomeProps) => {
         </Vert>
         <Hor>
           <Vert fullScreen>
-            <h3>Suggested Articles</h3>
-            <Hor>
-              {getPreviews(LIMIT)}
-            </Hor>
-            <h3>Suggested Games</h3>
+            <h2>In-Progress Projects</h2>
+            <Vert>
+              {getProjects()}
+            </Vert>
+            <h2>Suggested Games</h2>
             <Hor>
               <RowItem key="foragele" title="Foragele" miniText="Learn more about wild plants and fungi." urlPath="/foragele"/>
+            </Hor>
+            <h2>Suggested Articles</h2>
+            <Hor>
+              {getPreviews(LIMIT)}
             </Hor>
           </Vert>
         </Hor>
@@ -64,8 +78,10 @@ const Home = ({ previews } : HomeProps) => {
 
 export async function getStaticProps() {
   const res = await fetch(`https://backend.programmingbean.com/api/v1/previews`);
+  const res_projects = await fetch(`https://backend.programmingbean.com/api/v1/projects`);
   const previews = await res.json() as PreviewData[];
-  return { props: { previews } }
+  const projects = (await res_projects.json() as ProjectData[]).filter((val) => val.progress < 100);
+  return { props: { previews, projects } }
 }
 
 export default Home

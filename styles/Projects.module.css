@@ -35,6 +35,18 @@
   justify-content: space-between;
 }
 
+.titleContainer h3,  .titleContainer p {
+  margin-top: 0;
+}
+
+.titleContainer h3 {
+  text-align: left;
+}
+
+.titleContainer p {
+  text-align: right;
+}
+
 .progressContainer {
   height: 15px;
   width: 100%;
