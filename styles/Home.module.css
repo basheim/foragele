@@ -1,3 +1,22 @@
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fadeIn {
+  animation: fade-in 0.5s ease-in;
+  opacity: 1;
+}
+
+.error {
+  color: red;
+  text-align: center;
+}
+
 .container {
   background-color:  white;
   display: flex;
@@ -92,9 +111,23 @@
   width: 100vw;
 }
 
+.spacingNoWidthTop {
+  height: 20vh;
+}
+
+.spacingNoWidth1 {
+  height: 30px;
+}
+
 @media (max-width: 800px) {
   .container {
     padding: 0;
+  }
+
+  .button {
+    height: 50px;
+    font-size: 30px;
+    border-radius: 30px;
   }
 
   .main {

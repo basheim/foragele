@@ -6,6 +6,11 @@ export const navOptions: Nav[] = [
         path: '/'
     },
     {
+        text: 'Test',
+        path: '/test',
+        authRequired: true
+    },
+    {
         text: 'Foragele',
         path: '/foragele'
     },
@@ -20,5 +25,15 @@ export const navOptions: Nav[] = [
     {
         text: 'About Me',
         path: '/about'
+    },
+    {
+        text: 'Logout',
+        path: '/logout',
+        authRequired: true
+    },
+    {
+        text: 'Login',
+        path: '/login',
+        unauthorizedOnly: true
     }
 ];

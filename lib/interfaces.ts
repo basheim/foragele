@@ -24,6 +24,8 @@ export interface GameInfo {
 export interface Nav {
   text: string;
   path: string;
+  authRequired?: boolean;
+  unauthorizedOnly?: boolean;
 }
 
 export interface PreviewData {

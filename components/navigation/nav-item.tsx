@@ -9,12 +9,11 @@ export interface NavItemProps {
 }
 
 const NavItem = ({ nav, customClass, additionalAction }: NavItemProps) => {
-
   return (
     <Link href={nav.path}>
-        <div className={`${styles[customClass]} no-select`} onClick={additionalAction ? additionalAction : undefined}>
-            <h3>{nav.text}</h3>
-        </div>
+      <div className={`${styles[customClass]} no-select`} onClick={additionalAction ? additionalAction : undefined}>
+        <h3>{nav.text}</h3>
+      </div>
     </Link>
    
   )

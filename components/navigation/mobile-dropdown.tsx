@@ -1,4 +1,5 @@
-import { useEffect } from 'react';
+import Cookies from 'js-cookie';
+import { useEffect, useState } from 'react';
 import { navOptions } from '../../lib/navigation-constants';
 import styles from '../../styles/Navigation.module.css';
 import NavItem from './nav-item';
@@ -9,6 +10,11 @@ export interface MobileDropdownProps {
 }
 
 const MobileDropdown = ({ open, setClose }: MobileDropdownProps) => {
+  const [items, setItems] = useState<JSX.Element[]>([]);
+
+  useEffect(() => {
+    setItems(getNavItems());
+  }, [Cookies.get('X-AUTH-TOKEN')]);
 
   useEffect((): any => {
     if (open) {
@@ -19,6 +25,7 @@ const MobileDropdown = ({ open, setClose }: MobileDropdownProps) => {
   }, [open]);
 
   const getNavItems = () => {
+    const hasAuth = !!Cookies.get('X-AUTH-TOKEN');
     let light = true;
     const navItems = [
       <div key='mobile-x' className={styles.mobileDropdownXContainer}>
@@ -28,10 +35,12 @@ const MobileDropdown = ({ open, setClose }: MobileDropdownProps) => {
       </div>
     ];
     for (const item of navOptions) {
-      navItems.push(
-        <NavItem key={`mobile-${item.text.replace(/ /g, '-')}`} nav={item} customClass={light ? "mobileDropdownItem1" : "mobileDropdownItem2"} additionalAction={setClose}></NavItem>
-      )
-      light = !light;
+      if ((hasAuth && item.authRequired) || (!hasAuth && item.unauthorizedOnly) || (!item.authRequired && !item.unauthorizedOnly)) {
+        navItems.push(
+          <NavItem key={`mobile-${item.text.replace(/ /g, '-')}`} nav={item} customClass={light ? "mobileDropdownItem1" : "mobileDropdownItem2"} additionalAction={setClose}></NavItem>
+        )
+        light = !light;
+      }
     }
     return navItems;
   };
@@ -39,7 +48,7 @@ const MobileDropdown = ({ open, setClose }: MobileDropdownProps) => {
   return (
     <div className={open ? styles.mobileDropdownContainerOpen : styles.mobileDropdownContainerClose}>
       <div className={styles.mobileListContainer}>
-        {getNavItems()}
+        {items}
       </div>
     </div>
   )

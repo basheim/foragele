@@ -36,6 +36,7 @@
   justify-content: left;
   display: none;
   margin: 0.5rem;
+  z-index: 1000;
 }
 
 .mobileDropdownItem1, .mobileDropdownItem2{
@@ -46,6 +47,7 @@
   display: none;
   align-items: center;
   justify-content: center;
+  z-index: 1000;
 }
 
 .mobileDropdownItem1 {
@@ -67,6 +69,7 @@
   display: none;
   opacity: 0;
   background: white;
+  z-index: 1000;
 }
 
 
@@ -88,6 +91,7 @@
   flex-direction: column;
   height: auto;
   width: 100%;
+  z-index: 1000;
 }
 
 .textContainer {
@@ -108,6 +112,10 @@
   cursor: pointer;
 }
 
+.linkElement {
+  all: unset;
+}
+
 
 @media (max-width: 800px) {
 
@@ -122,6 +130,7 @@
     box-shadow: none;
     background-color: white;
     top: 0;
+    z-index: 1000;
   }
 
   .mobileDropdownContainerClose {

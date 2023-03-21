@@ -15,13 +15,13 @@ const BoxContainer = ({ modalSelectors, modalLinkSelectors }: BoxContainerProps)
     const boxes = [];
     if (modalSelectors && modalSelectors.length > 0) {
       for (let modalSelector of modalSelectors) {
-        boxes.push(<SmallModalBox text={modalSelector.text} modalItems={modalSelector.modalItems} modalTitle={modalSelector.modalTitle}/>);
+        boxes.push(<SmallModalBox key={modalSelector.text} text={modalSelector.text} modalItems={modalSelector.modalItems} modalTitle={modalSelector.modalTitle}/>);
       }
     }
 
     if (modalLinkSelectors && modalLinkSelectors.length > 0) {
       for (let modalSelector of modalLinkSelectors) {
-        boxes.push(<SmallLinkBox text={modalSelector.text} link={modalSelector.link}/>);
+        boxes.push(<SmallLinkBox key={modalSelector.text} text={modalSelector.text} link={modalSelector.link}/>);
       }
     } 
     

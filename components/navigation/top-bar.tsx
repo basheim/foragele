@@ -1,5 +1,6 @@
+import Cookies from 'js-cookie';
 import Link from 'next/link';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { navOptions } from '../../lib/navigation-constants';
 import styles from '../../styles/Navigation.module.css';
 import MobileItem from './mobile-item';
@@ -8,11 +9,17 @@ import NavItem from './nav-item';
 export interface TopBarProps {}
 
 const TopBar = ({ }: TopBarProps) => {
+  const [items, setItems] = useState<JSX.Element[]>([]);
+
+  useEffect(() => {
+    setItems(getNavItems());
+  }, [Cookies.get('X-AUTH-TOKEN')]);
 
   const getNavItems = () => {
+    const hasAuth = !!Cookies.get('X-AUTH-TOKEN');
     const navItems = [];
     for (const item of navOptions) {
-      if (item.path !== "/") {
+      if (item.path !== "/" && ((hasAuth && item.authRequired) || (!hasAuth && item.unauthorizedOnly) || (!item.authRequired && !item.unauthorizedOnly))) {
         navItems.push(
           <NavItem key={`top-${item.text.replace(/ /g, '-')}`} nav={item} customClass={"topBarItem"}></NavItem>
         )
@@ -30,7 +37,7 @@ const TopBar = ({ }: TopBarProps) => {
         </div>
       </Link>
       <div className={styles.itemContainer}>
-        {getNavItems()}
+        {items}
       </div>
     </div>
   )
