@@ -5,8 +5,6 @@ export const post = async (url: string, body: any, username?: string, password?:
   if (username && password) {
     headers['Authorization'] = 'Basic ' + Buffer.from(username + ":" + password).toString('base64');
   }
-
-  console.log(headers);
   
   const response = await fetch(url, {
     method: "POST", // *GET, POST, PUT, DELETE, etc.
