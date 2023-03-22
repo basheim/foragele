@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import { NextRequest } from 'next/server';
 import Cookies from 'js-cookie';
-import { getNewToken, isTokenValid } from '../lib/auth-api';
+import { getNewToken, isTokenValid } from './lib/auth-api';
 
 export async function middleware(request: NextRequest) {
   const maybeSession = Cookies.get('X-AUTH-TOKEN');
